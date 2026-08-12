@@ -1,0 +1,21 @@
+{
+  "name": "shinya-2ji",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "架空放送局「深夜二時」JOZZ-DTV のラテ欄を毎日自動生成する",
+  "scripts": {
+    "bootstrap": "node generator/bootstrap.js",
+    "daily": "node generator/daily.js",
+    "weekly": "node generator/weekly.js",
+    "sync": "node generator/sync.js",
+    "check": "node generator/check.js",
+    "serve": "node generator/serve.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.65.0"
+  }
+}

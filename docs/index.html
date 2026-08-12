@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>深夜二時　本日の番組表</title>
+    <meta name="description" content="架空放送局「深夜二時」JOZZ-DTV の番組表。毎朝更新されます。" />
+    <meta name="color-scheme" content="light" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="深夜二時 JOZZ-DTV" />
+    <meta property="og:title" content="深夜二時　本日の番組表" />
+    <meta
+      property="og:description"
+      content="深夜帯だけが異様に充実した、経営が不安な独立局。番組表は毎朝05:00、編成会議は毎週月曜04:00に更新されます。"
+    />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-page="index">
+    <a class="skip" href="#sheet">番組表へ</a>
+    <div class="paper">
+      <header class="masthead">
+        <div>
+          <h1 class="masthead__logo">深夜二時</h1>
+          <p class="masthead__call">JOZZ-DTV</p>
+        </div>
+        <div class="masthead__right">
+          <p class="masthead__date" id="masthead-date">　</p>
+          <p class="masthead__sub" id="masthead-sub">　</p>
+        </div>
+      </header>
+
+      <nav class="nav" aria-label="紙面">
+        <a href="index.html" aria-current="page">番組表</a>
+        <a href="archive.html">バックナンバー</a>
+        <a href="meetings.html">編成会議</a>
+        <a href="sponsors.html">スポンサー名鑑</a>
+        <span class="nav__spacer">放送 05:00 – 29:00</span>
+      </nav>
+
+      <main>
+        <div class="sheet" id="sheet">
+          <div class="onair" id="onair" hidden aria-hidden="true">
+            <span class="onair__clock" id="onair-clock"></span>
+          </div>
+          <p class="loading">組版中</p>
+        </div>
+
+        <p class="memo" id="memo"></p>
+      </main>
+
+      <footer class="foot">
+        <p id="foot-note">　</p>
+        <p>
+          この局・番組・出演者・スポンサー・商品はすべて実在しません。番組表は毎朝
+          05:00 に、編成会議は毎週月曜 04:00 に自動で更新されます。
+        </p>
+      </footer>
+    </div>
+
+    <div class="veil" id="veil" hidden></div>
+    <div
+      class="panel"
+      id="panel"
+      hidden
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="panel-kicker"
+    >
+      <div class="panel__bar">
+        <span class="panel__kicker" id="panel-kicker">　</span>
+        <button class="panel__close" id="panel-close" type="button">とじる</button>
+      </div>
+      <div class="panel__inner" id="panel-inner"></div>
+    </div>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

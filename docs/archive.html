@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>深夜二時　バックナンバー</title>
+    <meta name="color-scheme" content="light" />
+    <meta name="description" content="深夜二時 JOZZ-DTV のこれまでの番組表。" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-page="archive">
+    <a class="skip" href="#article">本文へ</a>
+    <div class="paper">
+      <header class="masthead">
+        <div>
+          <h1 class="masthead__logo">深夜二時</h1>
+          <p class="masthead__call">JOZZ-DTV</p>
+        </div>
+        <div class="masthead__right">
+          <p class="masthead__date">バックナンバー</p>
+          <p class="masthead__sub">これまでの番組表</p>
+        </div>
+      </header>
+
+      <nav class="nav" aria-label="紙面">
+        <a href="index.html">番組表</a>
+        <a href="archive.html" aria-current="page">バックナンバー</a>
+        <a href="meetings.html">編成会議</a>
+        <a href="sponsors.html">スポンサー名鑑</a>
+        <span class="nav__spacer">放送 05:00 – 29:00</span>
+      </nav>
+
+      <main class="article" id="article">
+        <p class="loading">読み込み中</p>
+      </main>
+
+      <footer class="foot">
+        <p>この局・番組・出演者・スポンサー・商品はすべて実在しません。</p>
+      </footer>
+    </div>
+
+    <div class="veil" id="veil" hidden></div>
+    <div class="panel" id="panel" hidden role="dialog" aria-modal="true" aria-labelledby="panel-kicker">
+      <div class="panel__bar">
+        <span class="panel__kicker" id="panel-kicker">　</span>
+        <button class="panel__close" id="panel-close" type="button">とじる</button>
+      </div>
+      <div class="panel__inner" id="panel-inner"></div>
+    </div>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

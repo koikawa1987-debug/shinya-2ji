@@ -1,0 +1,7 @@
+# リポジトリ内は LF に統一する。
+# Actions は Linux で走るので、CRLF が混ざるとワークフローの run ブロックが壊れる。
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.ico binary

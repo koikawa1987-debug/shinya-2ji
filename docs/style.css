@@ -1,0 +1,782 @@
+@charset "utf-8";
+
+/* ------------------------------------------------------------------
+   深夜二時 JOZZ-DTV ／ 紙面
+   新聞のラテ欄の文法にしたがう。角丸なし、罫はヘアライン、
+   色は黒と灰のみ。赤はオンエア線と「新」マークにだけ使う。
+------------------------------------------------------------------- */
+
+:root {
+  --paper: #e8e4da;
+  --paper-deep: #ded9cd;
+  --ink: #1a1a18;
+  --ink-soft: #4a4740;
+  --gray: #6f6b61;
+  --gray-light: #8e8a80;
+  --rule: #b6b0a3;
+  --rule-soft: #cbc5b8;
+  --red: #b3261e;
+
+  --mincho: "Hiragino Mincho ProN", "HiraMinProN-W3", "Yu Mincho", YuMincho,
+    "Noto Serif JP", "Songti SC", serif;
+  --gothic: "Hiragino Kaku Gothic ProN", "Yu Gothic", YuGothic, "Noto Sans JP",
+    "Meiryo", sans-serif;
+
+  --gutter: 3.6em;
+}
+
+* {
+  box-sizing: border-box;
+  border-radius: 0 !important;
+}
+
+html {
+  background: var(--paper);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--mincho);
+  font-size: 13px;
+  line-height: 1.5;
+  font-feature-settings: "palt" 1;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 1px;
+}
+
+.skip {
+  position: absolute;
+  left: -9999px;
+}
+.skip:focus {
+  left: 8px;
+  top: 8px;
+  z-index: 60;
+  background: var(--paper);
+  border: 1px solid var(--ink);
+  padding: 4px 8px;
+  font-family: var(--gothic);
+}
+
+/* ---------- 版面 ---------- */
+
+.paper {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 14px 64px;
+}
+
+/* ---------- 題字 ---------- */
+
+.masthead {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px 0 8px;
+  border-bottom: 2px solid var(--ink);
+}
+
+.masthead__logo {
+  margin: 0;
+  font-size: 27px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  line-height: 1.1;
+  text-indent: 0.28em;
+}
+
+.masthead__call {
+  margin: 3px 0 0;
+  font-family: var(--gothic);
+  font-size: 9.5px;
+  letter-spacing: 0.22em;
+  color: var(--gray);
+}
+
+.masthead__right {
+  text-align: right;
+  padding-bottom: 2px;
+}
+
+.masthead__date {
+  margin: 0;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+}
+
+.masthead__sub {
+  margin: 2px 0 0;
+  font-family: var(--gothic);
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  color: var(--gray);
+}
+
+/* ---------- 目次罫 ---------- */
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 18px;
+  padding: 5px 0;
+  border-bottom: 1px solid var(--rule);
+  font-family: var(--gothic);
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+}
+
+.nav a {
+  color: var(--ink-soft);
+  padding: 1px 0;
+}
+.nav a:hover {
+  color: var(--ink);
+}
+.nav a[aria-current="page"] {
+  color: var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+
+.nav__spacer {
+  margin-left: auto;
+  color: var(--gray-light);
+  letter-spacing: 0.08em;
+}
+
+/* ---------- 番組表 ---------- */
+
+.sheet {
+  position: relative;
+  margin-top: 10px;
+  border-top: 1px solid var(--ink);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: var(--gutter) 1fr;
+  column-gap: 9px;
+  border-bottom: 0.5px solid var(--rule-soft);
+  padding: 4px 0 5px;
+  position: relative;
+}
+
+.row__time {
+  text-align: right;
+  color: var(--ink);
+  letter-spacing: 0;
+  padding-top: 0.05em;
+  border-right: 0.5px solid var(--rule);
+  padding-right: 9px;
+  margin-right: -9px;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.t-h {
+  font-size: 15px;
+  line-height: 1;
+}
+.t-sep {
+  font-size: 11px;
+  padding: 0 0.5px;
+  color: var(--gray);
+}
+.t-m {
+  font-size: 11px;
+  line-height: 1;
+}
+
+.row__body {
+  min-width: 0;
+  padding-left: 9px;
+}
+
+.prog {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.prog__title {
+  font-family: var(--gothic);
+  font-weight: 700;
+  font-size: 12.5px;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  margin-right: 0.35em;
+}
+
+.prog__sub {
+  font-size: 12px;
+  color: var(--ink);
+  margin-right: 0.35em;
+}
+.prog__sub::before {
+  content: "「";
+  color: var(--gray);
+}
+.prog__sub::after {
+  content: "」";
+  color: var(--gray);
+}
+
+.prog__desc {
+  font-size: 11.5px;
+  color: var(--ink-soft);
+}
+
+.prog__cast {
+  font-size: 11px;
+  color: var(--gray);
+}
+
+/* 番組名をつつくと回が開く。見た目は紙のまま変えない */
+.hit {
+  cursor: pointer;
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  letter-spacing: inherit;
+}
+.hit:hover .prog__title {
+  border-bottom: 1px solid var(--ink);
+}
+
+/* ---------- 放送休止 ---------- */
+
+.row--rest .row__body {
+  color: var(--gray);
+}
+.row--rest .prog__title {
+  font-family: var(--mincho);
+  font-weight: 400;
+  color: var(--gray);
+  font-size: 11.5px;
+  letter-spacing: 0.14em;
+}
+.row--rest .row__time {
+  color: var(--gray);
+}
+
+/* ---------- CM の略号 ---------- */
+
+.row--cm {
+  padding: 2px 0;
+  background: linear-gradient(var(--paper-deep), var(--paper-deep));
+}
+.row--cm .row__body {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.marks {
+  display: inline-flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  vertical-align: 0.06em;
+  margin-left: 0.4em;
+}
+
+.mark {
+  font-family: var(--gothic);
+  font-size: 8.5px;
+  line-height: 1.35;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+  border: 0.5px solid var(--rule);
+  padding: 0 2.5px;
+  background: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.mark:hover {
+  color: var(--ink);
+  border-color: var(--ink);
+}
+.mark__new {
+  color: var(--red);
+  margin-left: 1.5px;
+  font-size: 7.5px;
+}
+
+.cm-label {
+  font-family: var(--gothic);
+  font-size: 8.5px;
+  letter-spacing: 0.18em;
+  color: var(--gray-light);
+}
+
+/* ---------- オンエア線 ---------- */
+
+.onair {
+  position: absolute;
+  left: -14px;
+  right: -14px;
+  top: 0;
+  height: 0;
+  border-top: 1px solid var(--red);
+  pointer-events: none;
+  z-index: 5;
+  transition: transform 420ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  will-change: transform;
+}
+
+.onair::before {
+  content: "";
+  position: absolute;
+  left: 14px;
+  top: -2.5px;
+  width: 4px;
+  height: 4px;
+  background: var(--red);
+}
+
+.onair__clock {
+  position: absolute;
+  right: 14px;
+  top: -0.95em;
+  font-family: var(--gothic);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  color: var(--red);
+  background: var(--paper);
+  padding: 0 3px 0 5px;
+  font-variant-numeric: tabular-nums;
+}
+
+.row--now .row__time,
+.row--now .prog__title {
+  color: var(--ink);
+}
+
+/* ---------- 編成メモ ---------- */
+
+.memo {
+  margin: 12px 0 0;
+  padding: 7px 9px;
+  border: 0.5px solid var(--rule);
+  font-size: 11px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+.memo b {
+  font-family: var(--gothic);
+  font-weight: 700;
+  font-size: 9.5px;
+  letter-spacing: 0.16em;
+  color: var(--gray);
+  margin-right: 0.7em;
+}
+
+/* ---------- 一般の記事面（一覧・議事録・名鑑） ---------- */
+
+.article {
+  margin-top: 14px;
+}
+
+.headline {
+  margin: 20px 0 6px;
+  font-family: var(--gothic);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 3px;
+}
+.headline:first-child {
+  margin-top: 6px;
+}
+
+.lede {
+  margin: 0 0 10px;
+  font-size: 11.5px;
+  color: var(--gray);
+  line-height: 1.7;
+  white-space: pre-line;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.list > li {
+  border-bottom: 0.5px solid var(--rule-soft);
+  padding: 6px 0;
+  display: grid;
+  grid-template-columns: 7.4em 1fr;
+  gap: 10px;
+}
+.list__key {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+}
+.list__key small {
+  font-family: var(--gothic);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: var(--gray);
+  margin-left: 0.4em;
+}
+.list__val {
+  font-size: 11.5px;
+  color: var(--ink-soft);
+  min-width: 0;
+}
+.list a .list__val,
+a.list__row {
+  color: inherit;
+}
+.list > li:hover .list__key {
+  border-bottom: 0;
+}
+
+.minutes {
+  margin: 0 0 20px;
+  padding: 10px 12px;
+  border: 0.5px solid var(--rule);
+  font-size: 12px;
+  line-height: 1.95;
+  white-space: pre-wrap;
+  color: var(--ink-soft);
+}
+
+.tag {
+  font-family: var(--gothic);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  border: 0.5px solid var(--rule);
+  padding: 0 3px;
+  color: var(--gray);
+  margin-left: 0.5em;
+  white-space: nowrap;
+}
+.tag--red {
+  color: var(--red);
+  border-color: var(--red);
+}
+
+/* ---------- せり上がる面（構成案・回） ---------- */
+
+.veil {
+  position: fixed;
+  inset: 0;
+  background: rgba(26, 26, 24, 0.28);
+  z-index: 40;
+  opacity: 0;
+  transition: opacity 180ms linear;
+}
+.veil[data-open="1"] {
+  opacity: 1;
+}
+
+.panel {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  width: min(720px, 100%);
+  max-height: 86vh;
+  transform: translate(-50%, 14px);
+  background: var(--paper);
+  border-top: 1px solid var(--ink);
+  box-shadow: 0 -1px 0 rgba(26, 26, 24, 0.16), 0 -14px 26px rgba(26, 26, 24, 0.11);
+  z-index: 50;
+  opacity: 0;
+  transition: transform 190ms cubic-bezier(0.22, 0.61, 0.36, 1), opacity 150ms linear;
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+.panel[data-open="1"] {
+  transform: translate(-50%, 0);
+  opacity: 1;
+}
+
+.panel__inner {
+  padding: 12px 16px 26px;
+}
+
+.panel__bar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 9px 16px 6px;
+  background: var(--paper);
+  border-bottom: 0.5px solid var(--rule);
+}
+
+.panel__kicker {
+  font-family: var(--gothic);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: var(--gray);
+}
+
+.panel__close {
+  font-family: var(--gothic);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: var(--ink-soft);
+  background: none;
+  border: 0.5px solid var(--rule);
+  padding: 2px 7px;
+  cursor: pointer;
+}
+.panel__close:hover {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+.panel__title {
+  margin: 4px 0 2px;
+  font-family: var(--gothic);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.04em;
+}
+
+.panel__meta {
+  margin: 0 0 10px;
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  color: var(--gray);
+}
+
+.panel__lead {
+  margin: 0 0 12px;
+  font-size: 12px;
+  line-height: 1.85;
+}
+
+.sec {
+  margin: 14px 0 0;
+}
+.sec__h {
+  margin: 0 0 5px;
+  font-family: var(--gothic);
+  font-weight: 700;
+  font-size: 9.5px;
+  letter-spacing: 0.2em;
+  color: var(--gray);
+  border-bottom: 0.5px solid var(--rule);
+  padding-bottom: 2px;
+}
+.sec p {
+  margin: 0 0 6px;
+  font-size: 11.5px;
+  line-height: 1.8;
+  color: var(--ink-soft);
+}
+
+/* 構成案の3列表 */
+.board {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+  line-height: 1.65;
+}
+.board th,
+.board td {
+  border: 0.5px solid var(--rule);
+  padding: 4px 6px;
+  vertical-align: top;
+  text-align: left;
+}
+.board th {
+  font-family: var(--gothic);
+  font-weight: 700;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  color: var(--gray);
+  background: var(--paper-deep);
+  white-space: nowrap;
+}
+.board td:first-child {
+  width: 3.6em;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+  white-space: nowrap;
+}
+.board td:nth-child(2) {
+  width: 44%;
+}
+.board__sound {
+  color: var(--ink-soft);
+}
+
+.narration {
+  margin: 0;
+  padding: 8px 10px;
+  border: 0.5px solid var(--rule);
+  background: var(--paper-deep);
+  font-size: 11.5px;
+  line-height: 1.9;
+}
+.narration__count {
+  display: block;
+  margin-top: 5px;
+  font-family: var(--gothic);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: var(--gray);
+}
+
+.killed {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.killed > li {
+  border-bottom: 0.5px solid var(--rule-soft);
+  padding: 6px 0;
+}
+.killed__t {
+  font-family: var(--gothic);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
+.killed__b {
+  margin: 2px 0 3px;
+  font-size: 11px;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+.killed__why {
+  font-size: 10.5px;
+  color: var(--gray);
+  line-height: 1.7;
+}
+.killed__why::before {
+  content: "没理由";
+  font-family: var(--gothic);
+  font-size: 8.5px;
+  letter-spacing: 0.14em;
+  border: 0.5px solid var(--rule);
+  padding: 0 3px;
+  margin-right: 0.6em;
+  white-space: nowrap;
+}
+
+/* 視聴率の棒 */
+.rating {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-variant-numeric: tabular-nums;
+}
+.rating__n {
+  font-family: var(--gothic);
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 0.02em;
+}
+.rating__u {
+  font-size: 10px;
+  color: var(--gray);
+}
+.spark {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 26px;
+  margin-top: 6px;
+}
+.spark i {
+  display: block;
+  width: 5px;
+  background: var(--gray-light);
+  min-height: 1px;
+}
+.spark i:last-child {
+  background: var(--ink);
+}
+
+.foot {
+  margin-top: 26px;
+  padding-top: 8px;
+  border-top: 1px solid var(--ink);
+  font-size: 10px;
+  line-height: 1.8;
+  color: var(--gray);
+  letter-spacing: 0.04em;
+}
+
+.loading {
+  padding: 40px 0;
+  text-align: center;
+  color: var(--gray);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+}
+
+/* ---------- 携帯 ---------- */
+
+@media (max-width: 640px) {
+  :root {
+    --gutter: 3.1em;
+  }
+  body {
+    font-size: 13px;
+  }
+  .paper {
+    padding: 0 11px 52px;
+  }
+  .onair {
+    left: -11px;
+    right: -11px;
+  }
+  .onair::before {
+    left: 11px;
+  }
+  .onair__clock {
+    right: 11px;
+  }
+  .masthead {
+    align-items: flex-end;
+  }
+  .masthead__logo {
+    font-size: 22px;
+  }
+  .masthead__date {
+    font-size: 12px;
+  }
+  .list > li {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+  .board td:nth-child(2) {
+    width: 40%;
+  }
+  .panel {
+    max-height: 90vh;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
