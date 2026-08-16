@@ -6,41 +6,181 @@
     <title>深夜二時　放送休止</title>
     <meta name="color-scheme" content="light" />
     <meta name="robots" content="noindex" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="/style.css" />
+    <!--
+      404 はサイトのどの深さのパスに対しても返るため、style.css への相対リンクが
+      当てにならない。ここだけは紙面の体裁を直接書いて自立させる。
+    -->
+    <style>
+      :root {
+        --paper: #e8e4da;
+        --ink: #1a1a18;
+        --gray: #6f6b61;
+        --rule: #b6b0a3;
+        --red: #b3261e;
+      }
+      * {
+        box-sizing: border-box;
+        border-radius: 0;
+      }
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: "Hiragino Mincho ProN", "Yu Mincho", YuMincho, "Noto Serif JP", serif;
+        font-size: 13px;
+        line-height: 1.5;
+        font-feature-settings: "palt" 1;
+      }
+      .paper {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 0 14px 64px;
+      }
+      .masthead {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 18px 0 8px;
+        border-bottom: 2px solid var(--ink);
+      }
+      h1 {
+        margin: 0;
+        font-size: 27px;
+        font-weight: 600;
+        letter-spacing: 0.28em;
+        line-height: 1.1;
+        text-indent: 0.28em;
+      }
+      .call {
+        margin: 3px 0 0;
+        font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", YuGothic, "Noto Sans JP", sans-serif;
+        font-size: 9.5px;
+        letter-spacing: 0.22em;
+        color: var(--gray);
+      }
+      .right {
+        text-align: right;
+        padding-bottom: 2px;
+      }
+      .right p {
+        margin: 0;
+      }
+      .right .sub {
+        margin-top: 2px;
+        font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", YuGothic, sans-serif;
+        font-size: 9.5px;
+        letter-spacing: 0.1em;
+        color: var(--gray);
+      }
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0 18px;
+        padding: 5px 0;
+        border-bottom: 1px solid var(--rule);
+        font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", YuGothic, sans-serif;
+        font-size: 10.5px;
+        letter-spacing: 0.1em;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      nav a:hover {
+        border-bottom: 1px solid var(--ink);
+      }
+      :focus-visible {
+        outline: 2px solid var(--red);
+        outline-offset: 1px;
+      }
+      h2 {
+        margin: 22px 0 6px;
+        font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", YuGothic, sans-serif;
+        font-weight: 700;
+        font-size: 13px;
+        letter-spacing: 0.1em;
+        border-bottom: 1px solid var(--ink);
+        padding-bottom: 3px;
+      }
+      .lede {
+        margin: 0 0 14px;
+        font-size: 11.5px;
+        color: var(--gray);
+        line-height: 1.9;
+      }
+      .bars {
+        display: flex;
+        height: 54px;
+        border: 0.5px solid var(--rule);
+      }
+      .bars i {
+        flex: 1;
+      }
+      .foot {
+        margin-top: 26px;
+        padding-top: 8px;
+        border-top: 1px solid var(--ink);
+        font-size: 10px;
+        line-height: 1.8;
+        color: var(--gray);
+      }
+    </style>
   </head>
   <body>
     <div class="paper">
       <header class="masthead">
         <div>
-          <h1 class="masthead__logo">深夜二時</h1>
-          <p class="masthead__call">JOZZ-DTV</p>
+          <h1>深夜二時</h1>
+          <p class="call">JOZZ-DTV</p>
         </div>
-        <div class="masthead__right">
-          <p class="masthead__date">放送休止</p>
-          <p class="masthead__sub">404</p>
+        <div class="right">
+          <p>放送休止</p>
+          <p class="sub">404</p>
         </div>
       </header>
 
-      <nav class="nav" aria-label="紙面">
-        <a href="/">番組表</a>
-        <a href="/archive.html">バックナンバー</a>
-        <a href="/meetings.html">編成会議</a>
-        <a href="/sponsors.html">スポンサー名鑑</a>
+      <nav aria-label="紙面">
+        <a href="./" data-to="">番組表</a>
+        <a href="./archive.html" data-to="archive.html">バックナンバー</a>
+        <a href="./meetings.html" data-to="meetings.html">編成会議</a>
+        <a href="./sponsors.html" data-to="sponsors.html">スポンサー名鑑</a>
       </nav>
 
-      <main class="article">
-        <h2 class="headline">この時間の放送はありません</h2>
+      <main>
+        <h2>この時間の放送はありません</h2>
         <p class="lede">
           お探しの紙面は見つかりませんでした。組まれなかった枠か、まだ刷られていない日付です。<br />
           番組表は毎朝 05:00 に更新されます。
         </p>
-        <div class="minutes">カラーバー</div>
+        <div class="bars" aria-label="カラーバー">
+          <i style="background: #9a9a9a"></i>
+          <i style="background: #9a9440"></i>
+          <i style="background: #4a8f92"></i>
+          <i style="background: #45813f"></i>
+          <i style="background: #8b4b86"></i>
+          <i style="background: #92413c"></i>
+          <i style="background: #3f4a86"></i>
+          <i style="background: #2a2a28"></i>
+        </div>
       </main>
 
       <footer class="foot">
         <p>この局・番組・出演者・スポンサー・商品はすべて実在しません。</p>
       </footer>
     </div>
+
+    <script>
+      // 404 はどの深さでも返るので、サイトの入口を実際のパスから割り出す。
+      // ユーザーページなら "/"、プロジェクトページなら "/<リポジトリ名>/"。
+      (function () {
+        var p = location.pathname.split('/');
+        var base = location.hostname.endsWith('github.io') && p[1] ? '/' + p[1] + '/' : '/';
+        var links = document.querySelectorAll('nav a[data-to]');
+        for (var i = 0; i < links.length; i++) {
+          links[i].href = base + links[i].getAttribute('data-to');
+        }
+      })();
+    </script>
   </body>
 </html>

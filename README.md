@@ -90,10 +90,59 @@ npm run serve
 
 <http://localhost:4649/> が開く。`docs/` をそのまま配るだけなので、GitHub Pages と同じものが見える。
 
-## GitHub Pages
+## Web に公開する
 
-Settings → Pages → Source を「Deploy from a branch」、Branch を `main` / `/docs` にする。
-`/data` は `/docs/data` に自動で複製されるので、Pages 側は `docs/` だけ見ればよい。
+手元のリポジトリは初期コミット済み。ここから先の手順。
+
+### 1. GitHub にリポジトリをつくる
+
+<https://github.com/new> で空のリポジトリを作る。**README も .gitignore も追加しない**（すでに手元にあるため衝突する）。
+
+公開範囲は Public か Private のどちらでもよいが、**Private だと GitHub Pages は有料プランでないと使えない**。ふつうは Public にする。
+
+### 2. 手元から押し上げる
+
+```bash
+git remote add origin https://github.com/<ユーザー名>/<リポジトリ名>.git
+git push -u origin main
+```
+
+### 3. APIキーを Secrets に登録する
+
+Settings → Secrets and variables → Actions → New repository secret
+
+- Name: `ANTHROPIC_API_KEY`
+- Secret: `sk-ant-...`
+
+ここが唯一のキーの置き場所。`docs/` にも `data/` にもキーは一切入らない。
+
+### 4. Actions に書き込み権限を与える
+
+**ここを忘れると毎朝のコミットが 403 で落ちる。**
+
+Settings → Actions → General → Workflow permissions → **Read and write permissions** を選んで Save。
+
+ワークフロー側の `permissions: contents: write` は「リポジトリが許した範囲まで」しか効かないため、リポジトリ設定が読み取り専用のままだと権限が上がらない。
+
+### 5. GitHub Pages を有効にする
+
+Settings → Pages → Source を **Deploy from a branch**、Branch を **`main`** / **`/docs`** にして Save。
+
+数分で `https://<ユーザー名>.github.io/<リポジトリ名>/` が開く。
+`/data` は `/docs/data` に自動で複製されるので、Pages 側は `docs/` だけ見ればよい。`docs/.nojekyll` を置いてあるので Jekyll の処理は走らない。
+
+### 6. 手で一度動かして確かめる
+
+Actions タブ → 「日次編成」 → Run workflow。
+
+これで今日ぶんの紙面が生成され、コミットされ、Pages に反映される。ここが通れば、あとは毎朝 05:00 JST に勝手に走る。
+
+### 気をつけること
+
+- **スケジュールはデフォルトブランチでしか走らない。** `main` に置くこと。
+- **60日間リポジトリに動きがないと、GitHub がスケジュールを止める。** このリポジトリは毎日自分でコミットするので通常は問題にならないが、生成が失敗し続けると止まる。
+- **cron は混雑時に遅れる。** 05:00 ちょうどに更新されないことがある（数分〜十数分）。
+- OGP 画像は用意していない。SNS に流すなら `docs/` に画像を置いて `og:image` に絶対URLで足す。
 
 ## 中身
 

@@ -24,7 +24,10 @@ http
     }
     if (fs.existsSync(file) && fs.statSync(file).isDirectory()) file = path.join(file, 'index.html');
     if (!fs.existsSync(file)) {
-      res.writeHead(404, { 'content-type': 'text/plain; charset=utf-8' }).end('404');
+      // GitHub Pages と同じく 404.html を返す
+      const notFound = path.join(DOCS_DIR, '404.html');
+      res.writeHead(404, { 'content-type': 'text/html; charset=utf-8' });
+      res.end(fs.existsSync(notFound) ? fs.readFileSync(notFound) : '404');
       return;
     }
     res.writeHead(200, {
