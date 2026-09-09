@@ -46,23 +46,34 @@ if (apply) {
 
 // 紙面が新聞なので、似顔絵ではなく「新聞に刷られた顔写真」に寄せる。
 // 網点とインクのにじみを指定して、他の要素（明朝・ヘアライン・単色）と衝突させない。
+// 紙面での表示は名鑑22px・人物面84px。引きの構図はこの大きさで潰れるので、
+// 新聞の顔写真と同じく寄りのバストアップに固定する。
+// 背景を完全に無地にするのは、意匠のためだけでなく、
+// 機材や札に実在の放送局名が乗るのを防ぐため（一度これで事故った）。
 const 共通 = [
-  'black and white newspaper press photograph, 1980s Japanese regional newspaper staff portrait',
-  'head and shoulders, centered, facing camera, neutral expression, no smile',
-  'plain light gray seamless studio background, soft frontal light, gentle shadow on one side',
-  'visible coarse halftone dot texture, slight ink bleed and dot gain of cheap newsprint',
-  'slightly blown highlights, muted grays, no pure black',
-  'documentary realism, not illustration, not anime, not painting',
-  'no text, no captions, no logos, no watermark, no border, no frame',
-  'square crop',
+  'tight head-and-shoulders portrait photograph, black and white',
+  'framed from the top of the head to the upper chest only, the face fills most of the frame',
+  'centered, facing the camera straight on, neutral closed-mouth expression',
+  'completely plain flat light gray studio backdrop — an empty seamless wall',
+  'no room, no desk, no furniture, no microphone, no equipment, no props of any kind',
+  'soft even frontal light, gentle falloff on one side',
+  '1980s Japanese regional newspaper staff photo printed on newsprint',
+  'visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black',
+  'documentary realism, a real photograph, not an illustration',
+  'absolutely no text anywhere in the image',
+  'square 1:1 crop',
 ].join(', ');
 
+// 文字と商標はしつこく禁じる。一度で効かないので、肯定側と否定側の両方に書く。
 const 否定 = [
+  'text, letters, japanese characters, kanji, signage, name plates, captions, subtitles',
+  'logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature',
+  'microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers',
+  'room interior, background objects, bokeh background, busy background',
   'color, saturated colors, glamour retouching, smooth skin, beauty filter',
   'anime, manga, illustration, 3d render, cgi, painting, sketch',
-  'text, letters, japanese characters, captions, watermark, signature, logo',
-  'multiple people, full body, hands near face, dramatic lighting, bokeh background',
-  'modern digital photo look, high dynamic range, sharp clinical detail',
+  'multiple people, full body, wide shot, hands visible, dramatic lighting',
+  'modern digital photo look, high dynamic range, clinical sharpness',
 ].join(', ');
 
 // 年代・性別・肩書は絵の骨格を決めるので英語でも渡す。
@@ -96,6 +107,56 @@ const 肩書英 = {
   通販進行: 'radio shopping programme host', 朗読: 'radio reader', 司書: 'public librarian',
   講師: 'language lecturer',
 };
+
+// 外見から、顔まわりと服だけを英語に写す。
+// 道具は意図的に落とす。寄りの構図に小道具を入れると、そこに商標が乗る。
+const 見た目辞書 = [
+  [/白髪まじり/, 'graying hair'],
+  [/白髪/, 'white hair'],
+  [/角刈り/, 'close-cropped hair'],
+  [/短い黒髪|短髪/, 'short black hair'],
+  [/ショートカット/, 'short cropped hair'],
+  [/肩までの髪/, 'shoulder-length hair'],
+  [/長い髪|髪が長/, 'long hair'],
+  [/髪を(後ろで)?(ひとつに)?束ね|結い|結った|まとめ/, 'hair tied back'],
+  [/前髪が長/, 'long fringe falling over the eyes'],
+  [/銀縁眼鏡|細い銀縁/, 'thin silver-rimmed glasses'],
+  [/丸眼鏡/, 'round glasses'],
+  [/老眼鏡/, 'reading glasses pushed up on the forehead'],
+  [/眼鏡/, 'glasses'],
+  [/無精髭/, 'stubble'],
+  [/日焼け/, 'weathered sun-tanned face'],
+  [/痩せ型/, 'slim build'],
+  [/恰幅/, 'heavy build'],
+  [/和装/, 'traditional kimono'],
+  [/警備服/, 'a security guard uniform'],
+  [/作業帽/, 'a work cap'],
+  [/作業ジャンパー|作業着/, 'work clothes'],
+  [/作業ベスト/, 'a utility work vest'],
+  [/事務服/, 'an office uniform'],
+  [/紺のジャケット/, 'a navy jacket'],
+  [/紺のスーツ|スーツ/, 'a dark suit'],
+  [/カーディガン/, 'a cardigan'],
+  [/エプロン/, 'an apron'],
+  [/蝶ネクタイ/, 'a bow tie'],
+  [/開襟シャツ/, 'an open-collar shirt'],
+  [/綿のシャツ/, 'a plain cotton shirt'],
+  [/Tシャツ/, 'a plain t-shirt'],
+  [/学生風/, 'plain student clothes'],
+  [/ネクタイ/, 'a necktie, never loosened'],
+  [/落ち着いた品のある装い/, 'quiet well-cut formal clothes'],
+  [/寝ていない顔|疲れた顔/, 'visibly exhausted, shadows under the eyes'],
+  [/血の気の引いた/, 'pale, drained complexion'],
+];
+
+function 見た目の英訳(h) {
+  const src = h.外見 ?? 外見表[h.id] ?? '';
+  const 出た = [];
+  for (const [re, en] of 見た目辞書) {
+    if (re.test(src) && !出た.includes(en)) 出た.push(en);
+  }
+  return 出た.length ? `${出た.join(', ')}.` : '';
+}
 
 function 英語の主語(h) {
   const 性 = /女性/.test(h.外見 ?? '') ? 'woman' : /男性/.test(h.外見 ?? '') ? 'man' : 'person';
@@ -160,9 +221,16 @@ for (const h of 並び) {
   for (const s of 手がかり(h)) 行.push(`- ${s}`);
   行.push('');
   行.push('```');
-  行.push(`Subject: ${英語の主語(h)}. ${共通}.`);
-  行.push(`（細部：${h.外見 ?? 外見表[h.id] ?? ''}${h.道具 ? ` 傍らに置くもの：${h.道具}` : ''}）`);
+  行.push(`Subject: ${英語の主語(h)}. ${見た目の英訳(h)} ${共通}.`);
   行.push('```');
+  行.push('');
+  行.push('<details><summary>ネガティブ</summary>');
+  行.push('');
+  行.push('```');
+  行.push(否定);
+  行.push('```');
+  行.push('');
+  行.push('</details>');
   行.push('');
 }
 
