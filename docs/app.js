@@ -174,11 +174,40 @@ function 名前を並べる(parent, 名前たち, station) {
 
 function 人物面(h, station) {
   return (root) => {
-    root.append(el('h2', 'panel__title', h.氏名));
-    root.append(el('p', 'panel__meta', `${h.よみ}　${h.肩書}　${h.所属}`));
+    const t = el('h2', 'panel__title', h.氏名);
+    if (h.所属 === '局員') t.append(el('span', 'tag', '局員'));
+    root.append(t);
+    root.append(
+      el('p', 'panel__meta',
+        [h.よみ, h.肩書, h.部署, h.年代].filter(Boolean).join('　') +
+        (h.勤務帯 ? `\n勤務　${h.勤務帯}` : '')),
+    );
     if (h.経歴) 節(root, '経歴').append(el('p', null, h.経歴));
     if (h.局との関係) 節(root, '局との関係').append(el('p', null, h.局との関係));
     if (h.癖) 節(root, '癖').append(el('p', null, h.癖));
+    if (h.道具) 節(root, '道具').append(el('p', null, h.道具));
+    if (h.不満) 節(root, '局への不満').append(el('p', null, h.不満));
+
+    // 人物どうしのつながり。押すとその人へ移る
+    const 縁 = (h.関係 ?? [])
+      .map((r) => ({ r, 相手: (station.人物 ?? []).find((x) => x.id === r.id) }))
+      .filter((x) => x.相手);
+    if (縁.length) {
+      const s = 節(root, '局内での関係');
+      const ul = el('ul', 'list');
+      for (const { r, 相手 } of 縁) {
+        const li = el('li');
+        const key = el('div', 'list__key');
+        const b = el('button', 'namelink', 相手.氏名);
+        b.type = 'button';
+        b.addEventListener('click', () => openPanel('人物', 人物面(相手, station)));
+        key.append(b);
+        key.append(el('small', null, 相手.肩書));
+        li.append(key, el('div', 'list__val', r.間柄));
+        ul.append(li);
+      }
+      s.append(ul);
+    }
 
     const 番組 = (h.担当番組id ?? [])
       .map((id) => station.番組.find((p) => p.id === id))
@@ -615,10 +644,8 @@ async function pageCast() {
     return;
   }
 
-  const 局員 = 人物.filter((h) => h.所属 === '局員');
-  const 外 = 人物.filter((h) => h.所属 !== '局員');
-
   const 並べる = (見出し, 一覧, 説明) => {
+    if (!一覧.length) return;
     root.append(el('h2', 'headline', 見出し));
     if (説明) root.append(el('p', 'lede', 説明));
     const ul = el('ul', 'list');
@@ -638,7 +665,7 @@ async function pageCast() {
       const val = el('div', 'list__val');
       val.append(document.createTextNode(`${h.肩書}　`));
       val.append(
-        document.createTextNode(番組.length ? 番組.map((p) => p.タイトル).join('、') : '（担当番組なし）'),
+        document.createTextNode(番組.length ? 番組.map((p) => p.タイトル).join('、') : h.勤務帯 || '—'),
       );
       li.append(key, val);
       ul.append(li);
@@ -646,8 +673,23 @@ async function pageCast() {
     root.append(ul);
   };
 
-  並べる('局員', 局員, '編成会議に出てくるのはこの人たち。画面や電波に出ている者もいる。');
-  並べる('出演者', 外, `フリー・劇団・一門ほか ${外.length}名。`);
+  // 局の中は部署ごとに、外は最後にまとめる
+  const 部署順 = ['編成部', '報道部', '制作部', '技術部', '営業部', '総務部'];
+  const 説明 = {
+    編成部: '何をいつ流すかを決め、議事録を書く。',
+    報道部: 'アナウンサー一名、記者一名、デスク一名。県の南側へは月に一度しか行けない。',
+    制作部: '深夜帯をほとんど一人で立ち上げた者と、その段取りを回す者たち。',
+    技術部: '送出・音声・送信所。局が止まるかどうかはこの部署にかかっている。',
+    営業部: '昼間の通販で年間固定費の六割を持ってくる。深夜帯の企画書は時間帯だけで断られる。',
+    総務部: '考査・経理・受付・警備。数字と表現の裏づけを見ている。',
+  };
+
+  const 局内 = 人物.filter((h) => 部署順.includes(h.部署));
+  for (const 部 of 部署順) {
+    並べる(部, 局内.filter((h) => h.部署 === 部), 説明[部]);
+  }
+  const 外 = 人物.filter((h) => !部署順.includes(h.部署));
+  並べる('出演者', 外, `フリー・劇団・一門ほか ${外.length}名。局員ではない。`);
 }
 
 /* ---------- 起動 ---------- */
