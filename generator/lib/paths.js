@@ -31,7 +31,48 @@ export function exists(file) {
  * サイト側の fetch がそのまま通るようにここで写しをつくる。
  * あわせて index.json（日付一覧・議事録一覧）も書き出す。
  */
+/**
+ * app.js と style.css の参照に中身の指紋を付ける。
+ * GitHub Pages は資産を10分キャッシュするため、これがないと
+ * コードを直した直後の訪問者が古い app.js で新しい JSON を読むことになる。
+ */
+export function stampAssets() {
+  const 指紋 = (name) => {
+    const file = path.join(DOCS_DIR, name);
+    if (!fs.existsSync(file)) return null;
+    let h = 2166136261;
+    for (const b of fs.readFileSync(file)) {
+      h ^= b;
+      h = Math.imul(h, 16777619);
+    }
+    return (h >>> 0).toString(36).slice(0, 6);
+  };
+
+  const v = { 'app.js': 指紋('app.js'), 'style.css': 指紋('style.css') };
+  let 直した = 0;
+
+  for (const f of fs.readdirSync(DOCS_DIR).filter((x) => x.endsWith('.html'))) {
+    const file = path.join(DOCS_DIR, f);
+    const 元 = fs.readFileSync(file, 'utf8');
+    let 後 = 元;
+    for (const [name, hash] of Object.entries(v)) {
+      if (!hash) continue;
+      // href="style.css" / src="app.js"（既存の ?v= も含めて）を貼り替える
+      後 = 後.replace(
+        new RegExp(`(["'])${name.replace('.', '\\.')}(\\?v=[0-9a-z]+)?\\1`, 'g'),
+        `$1${name}?v=${hash}$1`,
+      );
+    }
+    if (後 !== 元) {
+      fs.writeFileSync(file, 後, 'utf8');
+      直した += 1;
+    }
+  }
+  return { 直した, v };
+}
+
 export function syncDocsData() {
+  stampAssets();
   fs.rmSync(DOCS_DATA_DIR, { recursive: true, force: true });
   fs.cpSync(DATA_DIR, DOCS_DATA_DIR, { recursive: true });
 
