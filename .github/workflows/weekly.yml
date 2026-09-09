@@ -10,6 +10,11 @@ on:
         description: '会議の日付（YYYY-MM-DD／空なら今日）'
         required: false
         type: string
+      llm:
+        description: 'Claude API を使う（ANTHROPIC_API_KEY が要る・課金される）'
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -30,11 +35,13 @@ jobs:
           node-version: 20
           cache: npm
 
-      - run: npm ci
+      - if: ${{ inputs.llm }}
+        run: npm ci
 
       - name: 編成会議を開く
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          USE_LLM: ${{ inputs.llm && '1' || '0' }}
           TZ: Asia/Tokyo
         run: |
           node generator/weekly.js \

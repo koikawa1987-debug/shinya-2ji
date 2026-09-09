@@ -10,6 +10,8 @@ import { askJSON } from './lib/anthropic.js';
 import { 世界観ルール, 回生成プロンプト } from './lib/prompts.js';
 import { validate回, validateCM, retrying } from './lib/schema.js';
 import { 新CM生成, 新在の更新, 今日つくる媒体, 素材に仕立てる } from './lib/cm.js';
+import { composeEpisodes, composeMemo } from './lib/compose.js';
+import { composeCM } from './lib/compose-cm.js';
 import { TV, RADIO } from './lib/config.js';
 import { bootstrap } from './bootstrap.js';
 import path from 'node:path';
@@ -27,6 +29,9 @@ const force = flag('force');
 // API キーなしで開局初日の紙面を組み直すための逃げ道。
 const seedFile = opt('seed');
 const 新CMなし = flag('no-new-cm');
+// 既定は API を使わない作文器。--llm（または USE_LLM=1）のときだけ Claude を叩く。
+// 無料で毎朝回すための既定値であって、質を捨てているわけではない。
+const useLLM = flag('llm') || process.env.USE_LLM === '1';
 
 async function main() {
   if (!exists(STATION_FILE)) {
@@ -72,30 +77,55 @@ async function main() {
     })
     .join('\n');
 
-  const 回結果 = seedFile
-    ? readJSON(path.isAbsolute(seedFile) ? seedFile : path.resolve(process.cwd(), seedFile))
-    : await retrying('回生成', 3, async (_i, prev) => {
-        const value = await askJSON({
-          system: `${世界観ルール}\n\n局の説明: ${station.局のキャラクター}`,
-          prompt:
-            回生成プロンプト({ 日付, 曜日, 番組リスト }) +
-            (prev ? `\n\n## 前回の差し戻し\n${prev.join('\n')}\n直して出し直してください。` : ''),
-          maxTokens: 8000,
-        });
-        return { value, errors: validate回(value.回, [...programById.keys()]) };
+  let 回結果;
+  if (seedFile) {
+    回結果 = readJSON(path.isAbsolute(seedFile) ? seedFile : path.resolve(process.cwd(), seedFile));
+    // seed は書いた時点の編成しか知らない。あとから編成会議で入った番組は作文器で補う
+    const 済み = new Set(回結果.回.map((r) => r.番組id));
+    const 不足 = 番組行.filter((r) => !済み.has(r.番組id));
+    if (不足.length) {
+      回結果.回.push(...composeEpisodes(station, 日付, 曜日, 不足));
+      console.log(`seed に無い ${不足.length} 番組を作文器で補いました`);
+    }
+  } else if (useLLM) {
+    回結果 = await retrying('回生成', 3, async (_i, prev) => {
+      const value = await askJSON({
+        system: `${世界観ルール}\n\n局の説明: ${station.局のキャラクター}`,
+        prompt:
+          回生成プロンプト({ 日付, 曜日, 番組リスト }) +
+          (prev ? `\n\n## 前回の差し戻し\n${prev.join('\n')}\n直して出し直してください。` : ''),
+        maxTokens: 8000,
       });
+      return { value, errors: validate回(value.回, [...programById.keys()]) };
+    });
+  } else {
+    回結果 = {
+      回: composeEpisodes(station, 日付, 曜日, 番組行),
+      編成メモ: composeMemo(station, 日付, 曜日, rows, radioRows),
+    };
+    const errs = validate回(回結果.回, [...programById.keys()]);
+    if (errs.length) throw new Error(`作文器の出力が条件を満たしていません: ${errs.join(' / ')}`);
+  }
   const 回by = new Map(回結果.回.map((r) => [r.番組id, r]));
 
   // 4. LLM 呼び出し②：新しいCM素材を1本。素材の少ない波から埋める
   新在の更新(station, 日付);
   if (!新CMなし) {
-    // seed に素材が入っていればそれを使う。検証は LLM 産と同じものを通す
-    const 新CM = 回結果.新CM
-      ? seedCM(station, 日付, 回結果.新CM)
-      : await 新CM生成(station, 日付, 今日つくる媒体(station));
-    station.CM素材.push(新CM);
-    const sponsor = station.スポンサー.find((s) => s.id === 新CM.スポンサーid);
-    console.log(`新素材 ${新CM.略号}「${新CM.商品名}」（${新CM.媒体}／${sponsor?.社名}／${新CM.尺}秒）`);
+    const 媒体 = 今日つくる媒体(station);
+    // どの経路で作っても、検証は同じものを通す
+    let 新CM = null;
+    if (回結果.新CM) 新CM = seedCM(station, 日付, 回結果.新CM);
+    else if (useLLM) 新CM = await 新CM生成(station, 日付, 媒体);
+    else {
+      const 種 = composeCM(station, 日付, 媒体);
+      if (種) 新CM = seedCM(station, 日付, 種);
+      else console.warn(`${媒体}の新素材は今日は作れませんでした（名前か略号が尽きています）`);
+    }
+    if (新CM) {
+      station.CM素材.push(新CM);
+      const sponsor = station.スポンサー.find((s) => s.id === 新CM.スポンサーid);
+      console.log(`新素材 ${新CM.略号}「${新CM.商品名}」（${新CM.媒体}／${sponsor?.社名}／${新CM.尺}秒）`);
+    }
   }
 
   // 5〜6. CM の割り付けと数字のシミュレート（どちらも決定論）
@@ -154,10 +184,17 @@ async function main() {
 
 /** seed で渡されたCM素材に id と使用期間をつける。制約は LLM 産と同じ検証にかける。 */
 function seedCM(station, 日付, 種) {
-  const errs = validateCM(種, {
-    スポンサーid一覧: station.スポンサー.map((s) => s.id),
-    略号一覧: station.CM素材.map((c) => c.略号),
-  });
+  const 略号一覧 = station.CM素材.map((c) => c.略号);
+  // 略号がすでに使われていたら振り直す。素材そのものは捨てない
+  if (略号一覧.includes(種.略号)) {
+    const 空き = [];
+    for (const a of 'ABCDEFGHJKLMNPRSTWY') for (let d = 1; d <= 9; d++) 空き.push(`${a}${d}`);
+    const 代わり = 空き.find((x) => !略号一覧.includes(x));
+    if (!代わり) throw new Error('略号が尽きました');
+    console.warn(`略号 ${種.略号} は使用済みのため ${代わり} に振り直しました`);
+    種 = { ...種, 略号: 代わり };
+  }
+  const errs = validateCM(種, { スポンサーid一覧: station.スポンサー.map((s) => s.id), 略号一覧 });
   if (errs.length) throw new Error(`seed のCM素材が条件を満たしていません: ${errs.join(' / ')}`);
   return 素材に仕立てる(station, 日付, 種);
 }

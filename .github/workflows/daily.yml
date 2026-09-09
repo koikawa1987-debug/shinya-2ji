@@ -15,6 +15,11 @@ on:
         required: false
         type: boolean
         default: false
+      llm:
+        description: 'Claude API を使う（ANTHROPIC_API_KEY が要る・課金される）'
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -36,11 +41,16 @@ jobs:
           node-version: 20
           cache: npm
 
-      - run: npm ci
+      # 既定の生成器は API を使わないので依存は要らない。
+      # --llm を選んだときだけ SDK を入れる。
+      - if: ${{ inputs.llm }}
+        run: npm ci
 
       - name: ラテ欄を生成
         env:
+          # 既定は空でよい。llm を選んだときだけ Secrets から入る
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          USE_LLM: ${{ inputs.llm && '1' || '0' }}
           TZ: Asia/Tokyo
         run: |
           node generator/daily.js \

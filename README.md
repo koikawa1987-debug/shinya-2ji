@@ -28,23 +28,23 @@
 npm install
 ```
 
-### 2. APIキーを設定する
+### 2. APIキーは要らない
 
-生成には Claude API のキーが要る。**クライアント側のコードには絶対に置かない。** サーバも持たないので、キーが載るのは手元の環境変数と GitHub Secrets だけ。
+**既定の生成器は API を使わない。** 依存も不要で、`npm install` すら省いて動く。無料のまま毎朝回り続ける。
 
-PowerShell（そのセッションのみ）:
+文章は日付と番組idから決まる作文器が組み立てる。編成・CM割り付け・視聴率と同じ決定論なので、同じ日を作り直せば同じ紙面になる。放送日数から「三十三日目」「第二十二課」のような通し番号を数えるため、継続性はむしろ固い。
 
-```powershell
-$env:ANTHROPIC_API_KEY = 'sk-ant-...'
-```
+かわりに、数か月単位で見ると言い回しの手数は限られる。この局は通販が同じ品を三度紹介し、ニュースが同じ原稿を二度読む局なので、繰り返しは世界観と喧嘩しない。
 
-bash / zsh:
+Claude に書かせたくなったら `--llm` を付ける。そのときだけキーが要り、**従量課金が発生する**（Sonnet 4.6 で月 $2〜3 程度）。
 
 ```bash
-export ANTHROPIC_API_KEY='sk-ant-...'
+export ANTHROPIC_API_KEY='sk-ant-...'   # PowerShell は $env:ANTHROPIC_API_KEY = '...'
+npm install                              # --llm のときだけ SDK が要る
+npm run daily -- --llm
 ```
 
-GitHub Actions では、リポジトリの Settings → Secrets and variables → Actions → New repository secret から `ANTHROPIC_API_KEY` という名前で登録する。ワークフローが参照するのはこれ1本だけ。
+GitHub Actions で使う場合は Settings → Secrets and variables → Actions に `ANTHROPIC_API_KEY` を登録し、ワークフローを手動実行するときに **llm** のチェックを入れる。cron の自動実行は常に無料の作文器で動く。
 
 ### 3. 開局する
 
@@ -119,14 +119,11 @@ git remote add origin https://github.com/<ユーザー名>/<リポジトリ名>.
 git push -u origin main
 ```
 
-### 3. APIキーを Secrets に登録する
+### 3.（省略可）APIキーを Secrets に登録する
 
-Settings → Secrets and variables → Actions → New repository secret
+**無料で運転するなら不要。** 飛ばしてよい。
 
-- Name: `ANTHROPIC_API_KEY`
-- Secret: `sk-ant-...`
-
-ここが唯一のキーの置き場所。`docs/` にも `data/` にもキーは一切入らない。
+`--llm` を使いたいときだけ、Settings → Secrets and variables → Actions → New repository secret に `ANTHROPIC_API_KEY` を登録する。キーが載るのはここだけで、`docs/` にも `data/` にも一切入らない。
 
 ### 4. Actions に書き込み権限を与える
 
@@ -180,8 +177,10 @@ generator/
   sync.js        /data → /docs/data
   check.js       API を叩かない点検（尺・字数・時間軸・波の食い違い）
   serve.js       ローカル確認用の静的サーバ
-  lib/           時刻・編成・視聴率・プロンプト・検証・API呼び出し
-  lib/seed-*.json  APIキー無しで動かすための同梱データ
+  lib/           時刻・編成・視聴率・検証
+  lib/compose*.js  APIを使わない作文器（回・CM素材・議事録）
+  lib/prompts.js   --llm のときだけ使うプロンプト
+  lib/seed-*.json  開局データと、手書きの日次データ
 .github/workflows/
   daily.yml      毎朝 05:00 JST
   weekly.yml     毎週月曜 04:00 JST
@@ -194,12 +193,14 @@ LLM に投げるのは創作部分だけで、編成のロジックはコード�
 日次の流れ:
 
 1. `station.json` を読む
-2. **コード**：曜日から放送中番組を並べ、タイムテーブルの骨格を作る。空き枠は放送休止（カラーバー）で埋める
-3. **LLM**：その日の各番組の回（サブタイトル・今回の内容・ゲスト）。直近3回を渡して繰り返しを避けさせる
-4. **LLM**：新しいCM素材を1本。ありえない商品ひとつ、構成案の3列表、ナレーション、没案3本と没理由
-5. **コード**：スポンサーの出稿方針に従ってCMブレイクに素材を割り付ける。使用期間切れは自動的に外す
-6. **コード**：視聴率をシミュレート（時間帯係数 × ジャンル係数 × 継続週数の減衰 ± 0.8）
+2. **コード**：曜日から放送中番組を並べ、2波ぶんのタイムテーブルの骨格を作る。空き枠はカラーバー／停波で埋める
+3. **作文器**（`--llm` なら LLM）：その日の各番組の回（サブタイトル・今回の内容・ゲスト）
+4. **作文器**（`--llm` なら LLM）：新しいCM素材を1本。ありえない商品ひとつ、構成案の3列表、ナレーション、没案3本と没理由
+5. **コード**：スポンサーの出稿方針に従ってCMブレイクに素材を割り付ける。使用期間切れと波違いは自動的に外す
+6. **コード**：視聴率／聴取率をシミュレート（時間帯係数 × ジャンル係数 × 継続週数の減衰 ± 乱数）
 7. 書き出してコミット
+
+3と4がどちらの経路でも、検証は同じものを通る。尺と字数が合わない素材は、作文器が出したものでも弾かれる。
 
 ナレーションの文字数は尺から逆算して検証する（日本語ナレーションは1秒あたり約6〜7文字。15秒CMなら商品名・法定表示を除いて実質10秒＝66字が上限）。この制約を破った生成は差し戻して作り直させる。構成案の秒の合計が尺と合わない、没案が3本ない、といったものも同じく差し戻す。
 

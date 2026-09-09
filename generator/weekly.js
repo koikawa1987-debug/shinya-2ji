@@ -8,6 +8,7 @@ import { DAY_START_MIN, DAY_END_MIN } from './lib/config.js';
 import { askJSON } from './lib/anthropic.js';
 import { 世界観ルール, 編成会議プロンプト } from './lib/prompts.js';
 import { validate会議, retrying } from './lib/schema.js';
+import { composeMeeting } from './lib/compose-meeting.js';
 
 const args = process.argv.slice(2);
 const opt = (n) => {
@@ -15,6 +16,8 @@ const opt = (n) => {
   return i >= 0 ? args[i + 1] : undefined;
 };
 const 日付 = opt('date') ?? currentBroadcastDate();
+// 既定は API を使わない作文器。--llm（または USE_LLM=1）のときだけ Claude を叩く。
+const useLLM = args.includes('--llm') || process.env.USE_LLM === '1';
 
 /** 3月末と9月末は大改編 */
 function is大改編(日付) {
@@ -82,22 +85,29 @@ async function main() {
   console.log(`■ ${日付} 編成会議${大改編 ? '（大改編）' : ''}`);
 
   const 番組id一覧 = station.番組.map((p) => p.id);
-  const 結果 = await retrying('編成会議', 3, async (_i, prev) => {
-    const value = await askJSON({
-      system: `${世界観ルール}\n\n局の説明: ${station.局のキャラクター}`,
-      prompt:
-        編成会議プロンプト({
-          日付,
-          大改編,
-          実績: 実績表(station, 日付),
-          空き枠: 空き枠一覧(station, 日付),
-          スポンサー状況: スポンサー状況(station),
-          上限,
-        }) + (prev ? `\n\n## 前回の差し戻し\n${prev.join('\n')}\n直して出し直してください。` : ''),
-      maxTokens: 8000,
-    });
-    return { value, errors: validate会議(value, { 番組id一覧, 上限 }) };
-  });
+  const 結果 = useLLM
+    ? await retrying('編成会議', 3, async (_i, prev) => {
+        const value = await askJSON({
+          system: `${世界観ルール}\n\n局の説明: ${station.局のキャラクター}`,
+          prompt:
+            編成会議プロンプト({
+              日付,
+              大改編,
+              実績: 実績表(station, 日付),
+              空き枠: 空き枠一覧(station, 日付),
+              スポンサー状況: スポンサー状況(station),
+              上限,
+            }) + (prev ? `\n\n## 前回の差し戻し\n${prev.join('\n')}\n直して出し直してください。` : ''),
+          maxTokens: 8000,
+        });
+        return { value, errors: validate会議(value, { 番組id一覧, 上限 }) };
+      })
+    : composeMeeting(station, 日付, 大改編);
+
+  if (!useLLM) {
+    const errs = validate会議(結果, { 番組id一覧, 上限 });
+    if (errs.length) console.warn(`作文器の会議に不足: ${errs.join(' / ')}`);
+  }
 
   const 終了日 = addDays(日付, -1);
   for (const x of 結果.打ち切り ?? []) {
@@ -115,6 +125,7 @@ async function main() {
     const id = `p${String(seq).padStart(3, '0')}`;
     station.番組.push({
       id,
+      媒体: p.媒体 ?? 'テレビ',
       タイトル: p.タイトル,
       ジャンル: p.ジャンル,
       枠: p.枠,
@@ -152,7 +163,10 @@ async function main() {
   // 提供関係を出稿方針で結び直す
   for (const s of station.スポンサー) {
     const 対象 = station.番組.filter(
-      (p) => p.ステータス === '放送中' && (s.出稿方針?.ジャンル ?? []).includes(p.ジャンル),
+      (p) =>
+        p.ステータス === '放送中' &&
+        (s.出稿方針?.媒体 ?? ['テレビ']).includes(p.媒体 ?? 'テレビ') &&
+        (s.出稿方針?.ジャンル ?? []).includes(p.ジャンル),
     );
     s.提供番組id = 対象.map((p) => p.id);
   }
