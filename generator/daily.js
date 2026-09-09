@@ -4,12 +4,13 @@
 
 import { STATION_FILE, DAYS_DIR, readJSON, writeJSON, exists, syncDocsData } from './lib/paths.js';
 import { currentBroadcastDate, weekdayOf, toHHMM, toMinutes, addDays } from './lib/time.js';
-import { buildSkeleton, placeCommercials } from './lib/schedule.js';
-import { simulateRating } from './lib/ratings.js';
+import { buildSkeleton, placeCommercials, 媒体of } from './lib/schedule.js';
+import { simulateRating, 率の名前 } from './lib/ratings.js';
 import { askJSON } from './lib/anthropic.js';
 import { 世界観ルール, 回生成プロンプト } from './lib/prompts.js';
-import { validate回, retrying } from './lib/schema.js';
-import { 新CM生成, 新在の更新 } from './lib/cm.js';
+import { validate回, validateCM, retrying } from './lib/schema.js';
+import { 新CM生成, 新在の更新, 今日つくる媒体, 素材に仕立てる } from './lib/cm.js';
+import { TV, RADIO } from './lib/config.js';
 import { bootstrap } from './bootstrap.js';
 import path from 'node:path';
 
@@ -44,14 +45,16 @@ async function main() {
   const 曜日 = weekdayOf(日付);
   console.log(`■ ${日付}（${曜日}）の編成をつくります`);
 
-  // 2. 骨格（決定論）
-  const { rows, conflicts } = buildSkeleton(station, 日付);
-  if (conflicts.length) console.warn(`枠が重複したため落とした番組: ${conflicts.join(', ')}`);
+  // 2. 骨格（決定論）。テレビとラジオを別々に組む
+  const { rows, conflicts } = buildSkeleton(station, 日付, TV);
+  const { rows: radioRows, conflicts: radioConflicts } = buildSkeleton(station, 日付, RADIO);
+  const 全conflicts = [...conflicts, ...radioConflicts];
+  if (全conflicts.length) console.warn(`枠が重複したため落とした番組: ${全conflicts.join(', ')}`);
 
   const programById = new Map(station.番組.map((p) => [p.id, p]));
-  const 番組行 = rows.filter((r) => r.種別 === '番組');
+  const 番組行 = [...rows, ...radioRows].filter((r) => r.種別 === '番組');
 
-  // 3. LLM 呼び出し①：その日の各番組の回
+  // 3. LLM 呼び出し①：その日の各番組の回（2波ぶんまとめて1回で聞く）
   const 直近 = await 直近3回(日付);
   const 番組リスト = 番組行
     .map((r) => {
@@ -59,6 +62,7 @@ async function main() {
       const past = (直近.get(p.id) ?? []).map((x) => `    - ${x.日付} ${x.サブタイトル}／${x.今回の内容}`);
       return [
         `- 番組id: ${p.id}`,
+        `  媒体: ${媒体of(p)}`,
         `  タイトル: ${p.タイトル}（${p.ジャンル}）`,
         `  放送時刻: ${r.開始時刻} から ${r.尺}分`,
         `  出演者: ${(p.出演者 ?? []).join('、') || 'なし'}`,
@@ -82,59 +86,80 @@ async function main() {
       });
   const 回by = new Map(回結果.回.map((r) => [r.番組id, r]));
 
-  // 4. LLM 呼び出し②：新しいCM素材を1本
+  // 4. LLM 呼び出し②：新しいCM素材を1本。素材の少ない波から埋める
   新在の更新(station, 日付);
   if (!新CMなし) {
-    const 新CM = await 新CM生成(station, 日付);
+    // seed に素材が入っていればそれを使う。検証は LLM 産と同じものを通す
+    const 新CM = 回結果.新CM
+      ? seedCM(station, 日付, 回結果.新CM)
+      : await 新CM生成(station, 日付, 今日つくる媒体(station));
     station.CM素材.push(新CM);
     const sponsor = station.スポンサー.find((s) => s.id === 新CM.スポンサーid);
-    console.log(`新素材 ${新CM.略号}「${新CM.商品名}」（${sponsor?.社名}／${新CM.尺}秒）`);
+    console.log(`新素材 ${新CM.略号}「${新CM.商品名}」（${新CM.媒体}／${sponsor?.社名}／${新CM.尺}秒）`);
   }
 
-  // 5. CM の割り付け（決定論）
-  const withCM = placeCommercials(station, 日付, rows);
+  // 5〜6. CM の割り付けと数字のシミュレート（どちらも決定論）
+  const 組む = (rs, 媒体) =>
+    placeCommercials(station, 日付, rs, 媒体).map((row) => {
+      if (row.種別 !== '番組') return row;
+      const p = programById.get(row.番組id);
+      const 回 = 回by.get(row.番組id) ?? {};
+      const 数字 = simulateRating(p, 日付, row.開始時刻, 媒体);
+      return {
+        種別: '番組',
+        開始時刻: row.開始時刻,
+        尺: row.尺,
+        番組id: row.番組id,
+        サブタイトル: 回.サブタイトル ?? '',
+        今回の内容: 回.今回の内容 ?? '',
+        ゲスト: 回.ゲスト ?? [],
+        [率の名前(媒体)]: 数字,
+        ...(row.PT ? { PT: row.PT } : {}),
+      };
+    });
 
-  // 6. 視聴率のシミュレート（決定論）
-  const 編成 = withCM.map((row) => {
-    if (row.種別 !== '番組') return row;
-    const p = programById.get(row.番組id);
-    const 回 = 回by.get(row.番組id) ?? {};
-    const 視聴率 = simulateRating(p, 日付, row.開始時刻);
-    return {
-      種別: '番組',
-      開始時刻: row.開始時刻,
-      尺: row.尺,
-      番組id: row.番組id,
-      サブタイトル: 回.サブタイトル ?? '',
-      今回の内容: 回.今回の内容 ?? '',
-      ゲスト: 回.ゲスト ?? [],
-      視聴率,
-      ...(row.PT ? { PT: row.PT } : {}),
-    };
-  });
+  const 編成 = 組む(rows, TV);
+  const ラジオ編成 = 組む(radioRows, RADIO);
 
   // 7. 書き出し
   const day = {
     日付,
     曜日,
     編成,
+    ラジオ編成,
     編成メモ: 回結果.編成メモ ?? '',
   };
   writeJSON(outFile, day);
 
-  for (const row of 編成) {
-    if (row.種別 !== '番組') continue;
-    const p = programById.get(row.番組id);
-    p.視聴率履歴 = p.視聴率履歴 ?? [];
-    p.視聴率履歴 = p.視聴率履歴.filter((h) => h.日付 !== 日付);
-    p.視聴率履歴.push({ 日付, 数値: row.視聴率 });
-    p.視聴率履歴.sort((a, b) => a.日付.localeCompare(b.日付));
-    if (p.視聴率履歴.length > 120) p.視聴率履歴 = p.視聴率履歴.slice(-120);
+  // 履歴は媒体を問わず 視聴率履歴 に積む（ラジオの中身は聴取率）。
+  // 編成会議はこの一本の系列だけを読めばよい。
+  for (const [rowsOf, 媒体] of [
+    [編成, TV],
+    [ラジオ編成, RADIO],
+  ]) {
+    for (const row of rowsOf) {
+      if (row.種別 !== '番組') continue;
+      const p = programById.get(row.番組id);
+      p.視聴率履歴 = (p.視聴率履歴 ?? []).filter((h) => h.日付 !== 日付);
+      p.視聴率履歴.push({ 日付, 数値: row[率の名前(媒体)] });
+      p.視聴率履歴.sort((a, b) => a.日付.localeCompare(b.日付));
+      if (p.視聴率履歴.length > 120) p.視聴率履歴 = p.視聴率履歴.slice(-120);
+    }
   }
   writeJSON(STATION_FILE, station);
 
   const { days } = syncDocsData();
   console.log(`✓ ${path.relative(process.cwd(), outFile)} を書き出しました（全 ${days.length} 日分）`);
+}
+
+/** seed で渡されたCM素材に id と使用期間をつける。制約は LLM 産と同じ検証にかける。 */
+function seedCM(station, 日付, 種) {
+  const errs = validateCM(種, {
+    スポンサーid一覧: station.スポンサー.map((s) => s.id),
+    略号一覧: station.CM素材.map((c) => c.略号),
+  });
+  if (errs.length) throw new Error(`seed のCM素材が条件を満たしていません: ${errs.join(' / ')}`);
+  return 素材に仕立てる(station, 日付, 種);
 }
 
 async function 直近3回(日付) {

@@ -3,19 +3,30 @@ import {
   DAY_END_MIN,
   SB_MAX_SECONDS,
   PT_MAX_SECONDS,
+  RADIO_SB_MAX_SECONDS,
+  RADIO_PT_MAX_SECONDS,
   PT_MIN_PROGRAM_MINUTES,
+  TV,
+  RADIO,
   休止タイトル,
+  RADIO_休止タイトル,
 } from './config.js';
 import { toMinutes, toHHMM, weekdayOf, airsOn } from './time.js';
 
+/** 媒体の書かれていない古いデータはテレビとして扱う */
+export const 媒体of = (x) => x.媒体 ?? TV;
+
 /**
  * その日の曜日から放送中番組を並べ、タイムテーブルの骨格をつくる。
- * 空き枠は「放送休止（カラーバー）」で埋める。ここは完全に決定論。
+ * 空き枠はテレビなら「放送休止（カラーバー）」、ラジオなら「停波（試験電波）」で
+ * 埋める。ここは完全に決定論。
  */
-export function buildSkeleton(station, 日付) {
+export function buildSkeleton(station, 日付, 媒体 = TV) {
   const 曜日 = weekdayOf(日付);
+  const 休止名 = 媒体 === RADIO ? RADIO_休止タイトル : 休止タイトル;
 
   const onAir = station.番組
+    .filter((p) => 媒体of(p) === 媒体)
     .filter((p) => p.ステータス === '放送中' || p.ステータス === '特番')
     .filter((p) => p.開始日 <= 日付)
     .filter((p) => !p.終了日 || p.終了日 >= 日付)
@@ -48,7 +59,7 @@ export function buildSkeleton(station, 日付) {
         種別: '休止',
         開始時刻: toHHMM(from),
         尺: to - from,
-        タイトル: 休止タイトル,
+        タイトル: 休止名,
       });
     }
   };
@@ -108,13 +119,23 @@ function score(素材, sponsor, ctx) {
  * 骨格に CM ブレイクを差し込む。
  * 番組と番組の間 → SB、番組内 → PT。
  */
-export function placeCommercials(station, 日付, rows) {
+export function placeCommercials(station, 日付, rows, 媒体 = TV) {
   const sponsors = new Map(station.スポンサー.map((s) => [s.id, s]));
-  const pool = station.CM素材.filter((c) => isActive(c, 日付));
+  // 素材は波をまたげない。テレビ用の絵のある素材をラジオには流せない
+  const pool = station.CM素材.filter((c) => 媒体of(c) === 媒体).filter((c) => isActive(c, 日付));
   if (pool.length === 0) return rows;
+  const SB上限 = 媒体 === RADIO ? RADIO_SB_MAX_SECONDS : SB_MAX_SECONDS;
+  const PT上限 = 媒体 === RADIO ? RADIO_PT_MAX_SECONDS : PT_MAX_SECONDS;
 
   const 使用回数 = new Map(pool.map((c) => [c.id, 0]));
   const programById = new Map(station.番組.map((p) => [p.id, p]));
+
+  // 時間帯を指定しているスポンサーは、その時間帯の外には出さない。
+  // 「終電後にしか出さない」と言っている会社を昼の枠に載せないための線引き。
+  const 時間帯に合う = (c, ctx) => {
+    const 希望 = sponsors.get(c.スポンサーid)?.出稿方針?.時間帯 ?? [];
+    return 希望.length === 0 || 希望.includes(ctx.時間帯);
+  };
 
   const pick = (ctx, budgetSec) => {
     const chosen = [];
@@ -122,14 +143,17 @@ export function placeCommercials(station, 日付, rows) {
     // その日すでに流した回数ぶん優先度を下げ、同じ並びが続かないようにする
     const rank = (c) =>
       score(c, sponsors.get(c.スポンサーid), ctx) - (使用回数.get(c.id) ?? 0) * 1.5;
-    const ranked = [...pool].sort((a, b) => rank(b) - rank(a));
+    const 候補 = pool.filter((c) => 時間帯に合う(c, ctx));
+    // 方針に合う素材が1本もない時間帯は、穴を空けるよりは在庫を回す
+    const ranked = [...(候補.length ? 候補 : pool)].sort((a, b) => rank(b) - rank(a));
     for (const c of ranked) {
       if (c.尺 > remain) continue;
       if (chosen.some((x) => x.スポンサーid === c.スポンサーid)) continue; // 同一社の連続を避ける
       chosen.push(c);
       使用回数.set(c.id, (使用回数.get(c.id) ?? 0) + 1);
       remain -= c.尺;
-      if (remain < 15) break;
+      // いちばん短い素材も入らなくなったら打ち切る
+      if (remain < Math.min(...pool.map((x) => x.尺))) break;
     }
     return chosen;
   };
@@ -147,7 +171,7 @@ export function placeCommercials(station, 日付, rows) {
         ジャンル: p?.ジャンル ?? '',
         番組id: row.番組id,
       };
-      const mats = pick(ctx, PT_MAX_SECONDS);
+      const mats = pick(ctx, PT上限);
       if (mats.length) {
         // 番組行を前後に割らず、行に PT を抱かせる（紙面では番組名の下に略号が刷られる）
         row.PT = {
@@ -171,7 +195,7 @@ export function placeCommercials(station, 日付, rows) {
         ジャンル: p?.ジャンル ?? '',
         番組id: next.番組id,
       };
-      const mats = pick(ctx, SB_MAX_SECONDS);
+      const mats = pick(ctx, SB上限);
       if (mats.length) {
         out.push({
           種別: 'CM',

@@ -36,16 +36,31 @@
         <a href="index.html" aria-current="page">番組表</a>
         <a href="archive.html">バックナンバー</a>
         <a href="meetings.html">編成会議</a>
+        <a href="cast.html">出演者名鑑</a>
         <a href="sponsors.html">スポンサー名鑑</a>
         <span class="nav__spacer">放送 05:00 – 29:00</span>
       </nav>
 
       <main>
-        <div class="sheet" id="sheet">
-          <div class="onair" id="onair" hidden aria-hidden="true">
-            <span class="onair__clock" id="onair-clock"></span>
-          </div>
-          <p class="loading">組版中</p>
+        <div class="waves">
+          <section class="wave" id="wave-tv">
+            <h2 class="wave__h">テレビ<small>JOZZ-DTV</small></h2>
+            <div class="sheet" id="sheet-tv">
+              <div class="onair" id="onair-tv" hidden aria-hidden="true">
+                <span class="onair__clock" id="onair-clock-tv"></span>
+              </div>
+              <p class="loading">組版中</p>
+            </div>
+          </section>
+
+          <section class="wave" id="wave-radio">
+            <h2 class="wave__h">ラジオ<small>JOZZ-FM 78.4MHz</small></h2>
+            <div class="sheet" id="sheet-radio">
+              <div class="onair" id="onair-radio" hidden aria-hidden="true">
+                <span class="onair__clock" id="onair-clock-radio"></span>
+              </div>
+            </div>
+          </section>
         </div>
 
         <p class="memo" id="memo"></p>

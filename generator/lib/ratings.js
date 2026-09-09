@@ -1,7 +1,16 @@
 import {
+  TV,
+  RADIO,
   TIME_COEFFICIENT,
   GENRE_COEFFICIENT,
   GENRE_COEFFICIENT_DEFAULT,
+  RADIO_TIME_COEFFICIENT,
+  RADIO_GENRE_COEFFICIENT,
+  RADIO_GENRE_COEFFICIENT_DEFAULT,
+  RADIO_SCALE,
+  RADIO_RATING_JITTER,
+  RADIO_RATING_MIN,
+  RADIO_RATING_DIGITS,
   DECAY_PER_WEEK,
   DECAY_FLOOR,
   RATING_JITTER,
@@ -25,13 +34,37 @@ function seededRandom(seed) {
   return ((h >>> 0) % 1000000) / 1000000;
 }
 
-export function timeCoefficient(開始時刻) {
-  const hour = Math.floor(toMinutes(開始時刻) / 60);
-  return TIME_COEFFICIENT[hour] ?? 0.5;
+/** 媒体ごとの係数表をまとめて引く */
+function 係数(媒体) {
+  return 媒体 === RADIO
+    ? {
+        時間帯: RADIO_TIME_COEFFICIENT,
+        ジャンル: RADIO_GENRE_COEFFICIENT,
+        既定: RADIO_GENRE_COEFFICIENT_DEFAULT,
+        倍率: RADIO_SCALE,
+        ゆれ: RADIO_RATING_JITTER,
+        下限: RADIO_RATING_MIN,
+        桁: RADIO_RATING_DIGITS,
+      }
+    : {
+        時間帯: TIME_COEFFICIENT,
+        ジャンル: GENRE_COEFFICIENT,
+        既定: GENRE_COEFFICIENT_DEFAULT,
+        倍率: 1,
+        ゆれ: RATING_JITTER,
+        下限: RATING_MIN,
+        桁: 1,
+      };
 }
 
-export function genreCoefficient(ジャンル) {
-  return GENRE_COEFFICIENT[ジャンル] ?? GENRE_COEFFICIENT_DEFAULT;
+export function timeCoefficient(開始時刻, 媒体 = TV) {
+  const hour = Math.floor(toMinutes(開始時刻) / 60);
+  return 係数(媒体).時間帯[hour] ?? 0.5;
+}
+
+export function genreCoefficient(ジャンル, 媒体 = TV) {
+  const c = 係数(媒体);
+  return c.ジャンル[ジャンル] ?? c.既定;
 }
 
 export function decay(開始日, 日付) {
@@ -40,12 +73,19 @@ export function decay(開始日, 日付) {
 }
 
 /**
- * ベース値 ＝ 時間帯係数 × ジャンル係数 × 継続週数による減衰、これに ±0.8 の乱数。
- * 小数第1位まで。
+ * ベース値 ＝ 時間帯係数 × ジャンル係数 × 継続週数による減衰、これに乱数。
+ * テレビは視聴率で小数第1位まで、ラジオは聴取率で小数第2位まで。
  */
-export function simulateRating(program, 日付, 開始時刻) {
+export function simulateRating(program, 日付, 開始時刻, 媒体 = TV) {
+  const c = 係数(媒体);
   const base =
-    timeCoefficient(開始時刻) * genreCoefficient(program.ジャンル) * decay(program.開始日, 日付);
-  const jitter = (seededRandom(`${日付}/${program.id}`) * 2 - 1) * RATING_JITTER;
-  return Math.max(RATING_MIN, Math.round((base + jitter) * 10) / 10);
+    timeCoefficient(開始時刻, 媒体) * genreCoefficient(program.ジャンル, 媒体) * decay(program.開始日, 日付) * c.倍率;
+  const jitter = (seededRandom(`${日付}/${program.id}`) * 2 - 1) * c.ゆれ;
+  const p = 10 ** c.桁;
+  return Math.max(c.下限, Math.round((base + jitter) * p) / p);
+}
+
+/** 数字の呼び名。ラジオは「視聴率」ではなく「聴取率」 */
+export function 率の名前(媒体) {
+  return 媒体 === RADIO ? '聴取率' : '視聴率';
 }

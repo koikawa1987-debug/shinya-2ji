@@ -158,10 +158,56 @@ a {
 
 /* ---------- 番組表 ---------- */
 
+/* ---------- 2波（テレビ／ラジオ） ---------- */
+
+.waves {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.wave {
+  min-width: 0;
+}
+
+.wave__h {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7em;
+  margin: 0;
+  padding-bottom: 3px;
+  font-family: var(--gothic);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  color: var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+.wave__h small {
+  font-weight: 400;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: var(--gray);
+}
+
+/* 紙面が広いときは、テレビとラジオを左右に並べる。
+   実際の新聞のラテ欄も、テレビ欄の隣にラジオ欄が細く立っている。 */
+@media (min-width: 980px) {
+  .waves {
+    grid-template-columns: 1.35fr 1fr;
+    gap: 0 24px;
+  }
+  .wave + .wave {
+    padding-left: 24px;
+    margin-left: -24px;
+    border-left: 0.5px solid var(--rule);
+  }
+}
+
 .sheet {
   position: relative;
-  margin-top: 10px;
-  border-top: 1px solid var(--ink);
+  border-top: 0;
 }
 
 .row {
@@ -327,8 +373,8 @@ a {
 
 .onair {
   position: absolute;
-  left: -14px;
-  right: -14px;
+  left: 0;
+  right: 0;
   top: 0;
   height: 0;
   border-top: 1px solid var(--red);
@@ -341,7 +387,7 @@ a {
 .onair::before {
   content: "";
   position: absolute;
-  left: 14px;
+  left: 0;
   top: -2.5px;
   width: 4px;
   height: 4px;
@@ -350,7 +396,7 @@ a {
 
 .onair__clock {
   position: absolute;
-  right: 14px;
+  right: 0;
   top: -0.95em;
   font-family: var(--gothic);
   font-size: 9px;
@@ -472,6 +518,21 @@ a.list__row {
 .tag--red {
   color: var(--red);
   border-color: var(--red);
+}
+
+/* 人物名。押すと経歴が出るが、紙の上では傍点程度の主張に留める */
+.namelink {
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  border-bottom: 0.5px dotted var(--gray-light);
+}
+.namelink:hover {
+  border-bottom-color: var(--ink);
+  border-bottom-style: solid;
 }
 
 /* ---------- せり上がる面（構成案・回） ---------- */
@@ -742,16 +803,6 @@ a.list__row {
   }
   .paper {
     padding: 0 11px 52px;
-  }
-  .onair {
-    left: -11px;
-    right: -11px;
-  }
-  .onair::before {
-    left: 11px;
-  }
-  .onair__clock {
-    right: 11px;
   }
   .masthead {
     align-items: flex-end;

@@ -1,9 +1,22 @@
 // 生成結果の検証。LLM が破った制約はここで弾き、呼び出し側で作り直させる。
 
-/** 尺から逆算したナレーションの上限文字数。1秒 6〜7文字、商品名・法定表示ぶんを引く。 */
-export function ナレーション上限(尺) {
-  const 実質秒 = 尺 === 15 ? 10 : 尺 - 8; // 15秒→10秒 / 30秒→22秒
+import { TV, RADIO, 媒体一覧, CM_LENGTHS } from './config.js';
+
+/**
+ * 尺から逆算したナレーションの上限文字数。日本語ナレーションは1秒あたり約6〜7文字。
+ * テレビは商品名・法定表示のスーパーぶんを引く。ラジオは絵がないぶん実質が長く、
+ * 引くのは頭のジングルと尻の社名だけでよい。
+ */
+export function ナレーション上限(尺, 媒体 = TV) {
+  const 実質秒 = 媒体 === RADIO ? 尺 - 3 : 尺 === 15 ? 10 : 尺 - 8;
   return Math.floor(実質秒 * 6.6);
+}
+
+/** 構成案の3列表の見出し。ラジオに映像欄はない。 */
+export function 構成案の列(媒体) {
+  return 媒体 === RADIO
+    ? { 見出し: ['尺', '音', '原稿'], キー: ['時間', '音', '原稿'] }
+    : { 見出し: ['尺', '映像', '音声'], キー: ['時間', '映像', '音声'] };
 }
 
 function 文字数(s) {
@@ -13,19 +26,25 @@ function 文字数(s) {
 
 export function validateCM(cm, { スポンサーid一覧, 略号一覧 }) {
   const errs = [];
-  if (![15, 30].includes(cm.尺)) errs.push('尺は 15 か 30');
+  const 媒体 = cm.媒体 ?? TV;
+  if (!媒体一覧.includes(媒体)) errs.push(`媒体が不正: ${媒体}`);
+  const 許される尺 = CM_LENGTHS[媒体] ?? CM_LENGTHS[TV];
+  if (!許される尺.includes(cm.尺)) errs.push(`${媒体}の尺は ${許される尺.join(' か ')}`);
   if (!スポンサーid一覧.includes(cm.スポンサーid)) errs.push(`スポンサーid が不正: ${cm.スポンサーid}`);
   if (!/^[A-Z][0-9]$/.test(cm.略号 ?? '')) errs.push('略号は英大文字1字＋数字1字');
   else if (略号一覧.includes(cm.略号)) errs.push(`略号が重複: ${cm.略号}`);
 
+  const 列 = 構成案の列(媒体);
   if (!Array.isArray(cm.構成案) || cm.構成案.length < 2) errs.push('構成案が足りない');
   else {
     const 合計 = cm.構成案.reduce((a, r) => a + Number(r.時間 || 0), 0);
     if (合計 !== cm.尺) errs.push(`構成案の秒の合計が尺と合わない（${合計} / ${cm.尺}）`);
-    if (cm.構成案.some((r) => !r.映像 || !r.音声)) errs.push('構成案に空欄がある');
+    const [, 第2, 第3] = 列.キー;
+    if (cm.構成案.some((r) => !r[第2] || !r[第3]))
+      errs.push(`構成案に空欄がある（${媒体}の列は ${列.見出し.join('／')}）`);
   }
 
-  const 上限 = ナレーション上限(cm.尺);
+  const 上限 = ナレーション上限(cm.尺, 媒体);
   const n = 文字数(cm.ナレーション全文 ?? '');
   if (n === 0) errs.push('ナレーション全文が空');
   else if (n > 上限) errs.push(`ナレーションが尺に収まらない（${n}字／上限${上限}字）`);
