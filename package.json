@@ -10,6 +10,7 @@
     "weekly": "node generator/weekly.js",
     "sync": "node generator/sync.js",
     "check": "node generator/check.js",
+    "portraits": "node generator/portraits.js",
     "serve": "node generator/serve.js"
   },
   "engines": {

@@ -172,16 +172,49 @@ function 名前を並べる(parent, 名前たち, station) {
   parent.append(p);
 }
 
+/**
+ * 顔写真。docs/portraits/<id>.webp を置いた人だけ出す。
+ * どれが置いてあるかは data/portraits.json に書き出してあるので、
+ * 絵のない人のぶんの 404 を撃たずに済む。
+ */
+let 顔写真のある人 = new Set();
+
+async function 顔写真の一覧を読む() {
+  try {
+    const r = await json('data/portraits.json');
+    顔写真のある人 = new Set(r.顔写真 ?? []);
+  } catch {
+    顔写真のある人 = new Set();
+  }
+}
+
+function 顔写真(h, cls) {
+  if (!顔写真のある人.has(h.id)) return document.createComment(`portrait:${h.id}`);
+  const img = el('img', cls);
+  img.src = `portraits/${h.id}.webp`;
+  img.alt = `${h.氏名}の顔写真`;
+  img.loading = 'lazy';
+  img.decoding = 'async';
+  img.addEventListener('error', () => img.remove());
+  return img;
+}
+
 function 人物面(h, station) {
   return (root) => {
+    const head = el('div', 'bio');
+    const 本文 = el('div', 'bio__body');
     const t = el('h2', 'panel__title', h.氏名);
     if (h.所属 === '局員') t.append(el('span', 'tag', '局員'));
-    root.append(t);
-    root.append(
+    本文.append(t);
+    本文.append(
       el('p', 'panel__meta',
         [h.よみ, h.肩書, h.部署, h.年代].filter(Boolean).join('　') +
         (h.勤務帯 ? `\n勤務　${h.勤務帯}` : '')),
     );
+    head.append(顔写真(h, 'bio__face'), 本文);
+    root.append(head);
+
+    if (h.外見) 節(root, '外見').append(el('p', null, h.外見));
     if (h.経歴) 節(root, '経歴').append(el('p', null, h.経歴));
     if (h.局との関係) 節(root, '局との関係').append(el('p', null, h.局との関係));
     if (h.癖) 節(root, '癖').append(el('p', null, h.癖));
@@ -494,7 +527,11 @@ async function pageIndex() {
     : index.days.includes(now.date)
       ? now.date
       : index.days[index.days.length - 1];
-  const [station, day] = await Promise.all([json('data/station.json'), json(`data/days/${日付}.json`)]);
+  const [station, day] = await Promise.all([
+    json('data/station.json'),
+    json(`data/days/${日付}.json`),
+    顔写真の一覧を読む(),
+  ]);
 
   $('#masthead-date').textContent = 和文日付(日付);
   $('#masthead-sub').textContent =
@@ -635,7 +672,7 @@ async function pageSponsors() {
 }
 
 async function pageCast() {
-  const station = await json('data/station.json');
+  const [station] = await Promise.all([json('data/station.json'), 顔写真の一覧を読む()]);
   const root = $('#article');
   root.replaceChildren();
   const 人物 = station.人物 ?? [];
@@ -654,6 +691,7 @@ async function pageCast() {
       const key = el('div', 'list__key');
       const b = el('button', 'hit');
       b.type = 'button';
+      b.append(顔写真(h, 'face-thumb'));
       b.append(el('b', 'prog__title', h.氏名));
       b.addEventListener('click', () => openPanel('人物', 人物面(h, station)));
       key.append(b);

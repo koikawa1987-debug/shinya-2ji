@@ -520,6 +520,47 @@ a.list__row {
   border-color: var(--red);
 }
 
+/* ---------- 顔写真 ---------- */
+/* 新聞に刷られた顔写真として扱う。単色に落とし、角は立てたまま。 */
+
+.bio {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.bio__body {
+  min-width: 0;
+  flex: 1;
+}
+.bio__face {
+  width: 84px;
+  height: 84px;
+  object-fit: cover;
+  flex: none;
+  margin-top: 3px;
+  border: 0.5px solid var(--rule);
+  filter: grayscale(1) contrast(1.06);
+  background: var(--paper-deep);
+}
+
+.face-thumb {
+  width: 22px;
+  height: 22px;
+  object-fit: cover;
+  vertical-align: -0.42em;
+  margin-right: 0.45em;
+  border: 0.5px solid var(--rule);
+  filter: grayscale(1) contrast(1.06);
+  background: var(--paper-deep);
+}
+
+@media (max-width: 640px) {
+  .bio__face {
+    width: 64px;
+    height: 64px;
+  }
+}
+
 /* 人物名。押すと経歴が出るが、紙の上では傍点程度の主張に留める */
 .namelink {
   background: none;

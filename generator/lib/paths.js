@@ -88,6 +88,18 @@ export function syncDocsData() {
   const days = listOf(DAYS_DIR);
   const meetings = listOf(MEETINGS_DIR);
 
+  // 置いてある顔写真の一覧。サイト側はこれを見てから img を出すので、
+  // 絵のない人のぶんの 404 が飛ばない。
+  const 顔写真ディレクトリ = path.join(DOCS_DIR, 'portraits');
+  const 顔写真 = fs.existsSync(顔写真ディレクトリ)
+    ? fs
+        .readdirSync(顔写真ディレクトリ)
+        .filter((f) => /\.webp$/i.test(f))
+        .map((f) => f.replace(/\.webp$/i, ''))
+        .sort()
+    : [];
+  writeJSON(path.join(DOCS_DATA_DIR, 'portraits.json'), { 顔写真 });
+
   const s = fs.existsSync(STATION_FILE) ? readJSON(STATION_FILE) : null;
 
   writeJSON(path.join(DOCS_DATA_DIR, 'index.json'), {
