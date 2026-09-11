@@ -105,7 +105,6 @@ export function syncDocsData() {
   const s = fs.existsSync(STATION_FILE) ? readJSON(STATION_FILE) : null;
 
   writeJSON(path.join(DOCS_DATA_DIR, 'index.json'), {
-    生成時刻: new Date().toISOString(),
     days,
     meetings,
     station: s && {
