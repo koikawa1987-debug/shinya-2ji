@@ -90,14 +90,16 @@ export function syncDocsData() {
 
   // 置いてある顔写真の一覧。サイト側はこれを見てから img を出すので、
   // 絵のない人のぶんの 404 が飛ばない。
+  // 拡張子は問わない。生成器から降りてくるものが png のことも jpg のこともある。
+  // id とファイル名の対応をそのまま配り、サイト側は書かれたとおりに読む。
   const 顔写真ディレクトリ = path.join(DOCS_DIR, 'portraits');
-  const 顔写真 = fs.existsSync(顔写真ディレクトリ)
-    ? fs
-        .readdirSync(顔写真ディレクトリ)
-        .filter((f) => /\.webp$/i.test(f))
-        .map((f) => f.replace(/\.webp$/i, ''))
-        .sort()
-    : [];
+  const 顔写真 = {};
+  if (fs.existsSync(顔写真ディレクトリ)) {
+    for (const f of fs.readdirSync(顔写真ディレクトリ).sort()) {
+      const m = /^(h\d{3})\.(webp|png|jpe?g|avif)$/i.exec(f);
+      if (m && !顔写真[m[1]]) 顔写真[m[1]] = f;
+    }
+  }
   writeJSON(path.join(DOCS_DATA_DIR, 'portraits.json'), { 顔写真 });
 
   const s = fs.existsSync(STATION_FILE) ? readJSON(STATION_FILE) : null;

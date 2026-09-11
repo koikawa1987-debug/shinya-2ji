@@ -177,21 +177,25 @@ function 名前を並べる(parent, 名前たち, station) {
  * どれが置いてあるかは data/portraits.json に書き出してあるので、
  * 絵のない人のぶんの 404 を撃たずに済む。
  */
-let 顔写真のある人 = new Set();
+let 顔写真の表 = {};
 
 async function 顔写真の一覧を読む() {
   try {
     const r = await json('data/portraits.json');
-    顔写真のある人 = new Set(r.顔写真 ?? []);
+    // 旧い形（idの配列）で配られていても読めるようにしておく
+    顔写真の表 = Array.isArray(r.顔写真)
+      ? Object.fromEntries(r.顔写真.map((id) => [id, `${id}.webp`]))
+      : (r.顔写真 ?? {});
   } catch {
-    顔写真のある人 = new Set();
+    顔写真の表 = {};
   }
 }
 
 function 顔写真(h, cls) {
-  if (!顔写真のある人.has(h.id)) return document.createComment(`portrait:${h.id}`);
+  const file = 顔写真の表[h.id];
+  if (!file) return document.createComment(`portrait:${h.id}`);
   const img = el('img', cls);
-  img.src = `portraits/${h.id}.webp`;
+  img.src = `portraits/${file}`;
   img.alt = `${h.氏名}の顔写真`;
   img.loading = 'lazy';
   img.decoding = 'async';
