@@ -543,6 +543,23 @@ a.list__row {
   background: var(--paper-deep);
 }
 
+/* 名鑑は顔写真のぶん名前の欄を広げる。氏名は折り返さない */
+body[data-page="cast"] .list > li {
+  grid-template-columns: 12em 1fr;
+}
+body[data-page="cast"] .list__key .prog__title {
+  white-space: nowrap;
+}
+body[data-page="cast"] .list__key small {
+  display: block;
+  margin: 1px 0 0;
+}
+@media (max-width: 640px) {
+  body[data-page="cast"] .list > li {
+    grid-template-columns: 1fr;
+  }
+}
+
 .face-thumb {
   width: 22px;
   height: 22px;

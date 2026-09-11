@@ -110,50 +110,66 @@ const 肩書英 = {
 
 // 外見から、顔まわりと服だけを英語に写す。
 // 道具は意図的に落とす。寄りの構図に小道具を入れると、そこに商標が乗る。
-const 見た目辞書 = [
-  [/白髪まじり/, 'graying hair'],
-  [/白髪/, 'white hair'],
-  [/角刈り/, 'close-cropped hair'],
-  [/短い黒髪|短髪/, 'short black hair'],
-  [/ショートカット/, 'short cropped hair'],
-  [/肩までの髪/, 'shoulder-length hair'],
-  [/長い髪|髪が長/, 'long hair'],
-  [/髪を(後ろで)?(ひとつに)?束ね|結い|結った|まとめ/, 'hair tied back'],
-  [/前髪が長/, 'long fringe falling over the eyes'],
-  [/銀縁眼鏡|細い銀縁/, 'thin silver-rimmed glasses'],
-  [/丸眼鏡/, 'round glasses'],
-  [/老眼鏡/, 'reading glasses pushed up on the forehead'],
-  [/眼鏡/, 'glasses'],
-  [/無精髭/, 'stubble'],
-  [/日焼け/, 'weathered sun-tanned face'],
-  [/痩せ型/, 'slim build'],
-  [/恰幅/, 'heavy build'],
-  [/和装/, 'traditional kimono'],
-  [/警備服/, 'a security guard uniform'],
-  [/作業帽/, 'a work cap'],
-  [/作業ジャンパー|作業着/, 'work clothes'],
-  [/作業ベスト/, 'a utility work vest'],
-  [/事務服/, 'an office uniform'],
-  [/紺のジャケット/, 'a navy jacket'],
-  [/紺のスーツ|スーツ/, 'a dark suit'],
-  [/カーディガン/, 'a cardigan'],
-  [/エプロン/, 'an apron'],
-  [/蝶ネクタイ/, 'a bow tie'],
-  [/開襟シャツ/, 'an open-collar shirt'],
-  [/綿のシャツ/, 'a plain cotton shirt'],
-  [/Tシャツ/, 'a plain t-shirt'],
-  [/学生風/, 'plain student clothes'],
-  [/ネクタイ/, 'a necktie, never loosened'],
-  [/落ち着いた品のある装い/, 'quiet well-cut formal clothes'],
-  [/寝ていない顔|疲れた顔/, 'visibly exhausted, shadows under the eyes'],
-  [/血の気の引いた/, 'pale, drained complexion'],
-];
+// 系統ごとに分ける。ひとつの系統からは最初に当たったものだけを採る。
+// 「白髪まじりの短髪」が 白髪まじり・白髪・短髪 に同時に当たって、
+// 矛盾した指定が3つ並ぶのを防ぐため。並び順は具体的なものから先に置く。
+const 見た目辞書 = {
+  髪: [
+    [/白髪まじり/, 'graying hair'],
+    [/角刈り/, 'close-cropped hair'],
+    [/白髪/, 'white hair'],
+    [/短い黒髪|短髪/, 'short black hair'],
+    [/ショートカット/, 'short cropped hair'],
+    [/肩までの髪/, 'shoulder-length hair'],
+    [/前髪が長/, 'long fringe falling over the eyes'],
+    [/長い髪|髪が長/, 'long hair'],
+    [/髪を(後ろで)?(ひとつに)?束ね|結い|結った|まとめ/, 'hair tied back'],
+  ],
+  眼鏡: [
+    [/銀縁眼鏡|細い銀縁/, 'thin silver-rimmed glasses'],
+    [/丸眼鏡/, 'round glasses'],
+    [/老眼鏡/, 'reading glasses pushed up on the forehead'],
+    [/眼鏡/, 'plain glasses'],
+  ],
+  顔: [
+    [/無精髭/, 'stubble'],
+    [/日焼け/, 'a weathered sun-tanned face'],
+  ],
+  体つき: [
+    [/痩せ型/, 'a slim build'],
+    [/恰幅/, 'a heavy build'],
+  ],
+  服: [
+    [/和装/, 'a traditional kimono'],
+    [/警備服/, 'a security guard uniform'],
+    [/作業帽/, 'a work cap and work clothes'],
+    [/作業ベスト/, 'a utility work vest'],
+    [/作業ジャンパー|作業着/, 'plain work clothes'],
+    [/事務服/, 'an office uniform'],
+    [/蝶ネクタイ/, 'a bow tie'],
+    [/紺のジャケット/, 'a navy jacket'],
+    [/紺のスーツ|スーツ/, 'a dark suit'],
+    [/カーディガン/, 'a cardigan'],
+    [/エプロン/, 'an apron'],
+    [/開襟シャツ/, 'an open-collar shirt'],
+    [/綿のシャツ/, 'a plain cotton shirt'],
+    [/Tシャツ/, 'a plain t-shirt'],
+    [/学生風/, 'plain student clothes'],
+    [/落ち着いた品のある装い/, 'quiet well-cut formal clothes'],
+    [/ネクタイ/, 'a shirt and necktie'],
+  ],
+  様子: [
+    [/寝ていない顔|疲れた顔/, 'visibly exhausted, shadows under the eyes'],
+    [/血の気の引いた/, 'a pale, drained complexion'],
+  ],
+};
 
 function 見た目の英訳(h) {
   const src = h.外見 ?? 外見表[h.id] ?? '';
   const 出た = [];
-  for (const [re, en] of 見た目辞書) {
-    if (re.test(src) && !出た.includes(en)) 出た.push(en);
+  for (const 候補 of Object.values(見た目辞書)) {
+    const 当たり = 候補.find(([re]) => re.test(src));
+    if (当たり) 出た.push(当たり[1]);
   }
   return 出た.length ? `${出た.join(', ')}.` : '';
 }
