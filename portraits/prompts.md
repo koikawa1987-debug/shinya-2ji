@@ -8,19 +8,20 @@
 2. 出てきた画像を **`docs/portraits/<id>.webp`** として保存する（例：`docs/portraits/h051.webp`）
 3. `npm run sync` を走らせてコミットする
 
-置いた人から順に、名鑑と人物面に顔写真が出る。置いていない人は何も出ない。
-紙面が単色なので、**カラーで作らず白黒で作ること**。網点の粗さが他の要素と釣り合う。
+置いた人から順に、名鑑と人物面に似顔絵が出る。置いていない人は何も出ない。
+絵柄は**新聞のコラムに添えられる似顔絵**。ペンの黒とスクリーントーンの灰だけで、ある程度デフォルメする。
+紙面が単色なので、**カラーで作らないこと**。55名が同じ描き手に見えることを優先する。
 
 ## 全員に共通する指定
 
 ```
-tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop
+stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1
 ```
 
 ### ネガティブ（対応する生成器なら）
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 ## 編成部
@@ -33,13 +34,13 @@ text, letters, japanese characters, kanji, signage, name plates, captions, subti
 - 癖：会議で数字を出すとき、必ず一度紙をめくり直してから読む。
 
 ```
-Subject: a Japanese man in their late 40s, programming director at a small regional broadcaster. graying hair, a slim build, a shirt and necktie. tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop.
+Subject: a Japanese man in their late 40s, programming director at a small regional broadcaster. graying hair, a slim build, a shirt and necktie. stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1.
 ```
 
 <details><summary>ネガティブ</summary>
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 </details>
@@ -52,13 +53,13 @@ text, letters, japanese characters, kanji, signage, name plates, captions, subti
 - 癖：議事録に「以上。」と書いたあと、必ず一行あけて保存する。
 
 ```
-Subject: a Japanese woman in their early 30s, programming department clerk at a small regional broadcaster. short black hair, thin silver-rimmed glasses. tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop.
+Subject: a Japanese woman in their early 30s, programming department clerk at a small regional broadcaster. short black hair, thin silver-rimmed glasses. stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1.
 ```
 
 <details><summary>ネガティブ</summary>
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 </details>
@@ -71,13 +72,13 @@ text, letters, japanese characters, kanji, signage, name plates, captions, subti
 - 癖：送信する前に、送る先の名前を三度読む。
 
 ```
-Subject: a Japanese man in their mid 20s, programming department clerk at a small regional broadcaster.  tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop.
+Subject: a Japanese man in their mid 20s, programming department clerk at a small regional broadcaster.  stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1.
 ```
 
 <details><summary>ネガティブ</summary>
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 </details>
@@ -92,13 +93,13 @@ text, letters, japanese characters, kanji, signage, name plates, captions, subti
 - 癖：読み間違えると、直したあと一拍おいてから続ける。
 
 ```
-Subject: a Japanese woman in their late 20s, television news announcer at a small regional broadcaster. shoulder-length hair, a navy jacket. tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop.
+Subject: a Japanese woman in their late 20s, television news announcer at a small regional broadcaster. shoulder-length hair, a navy jacket. stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1.
 ```
 
 <details><summary>ネガティブ</summary>
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 </details>
@@ -111,13 +112,13 @@ text, letters, japanese characters, kanji, signage, name plates, captions, subti
 - 癖：中継の頭で、必ず足元を一度確かめる。
 
 ```
-Subject: a Japanese man in their early 40s, field news reporter at a small regional broadcaster. a weathered sun-tanned face. tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop.
+Subject: a Japanese man in their early 40s, field news reporter at a small regional broadcaster. a weathered sun-tanned face. stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1.
 ```
 
 <details><summary>ネガティブ</summary>
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 </details>
@@ -130,13 +131,13 @@ text, letters, japanese characters, kanji, signage, name plates, captions, subti
 - 癖：原稿を読むとき、指で行を追わない。
 
 ```
-Subject: a Japanese man in their early 50s, news desk editor at a small regional broadcaster.  tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop.
+Subject: a Japanese man in their early 50s, news desk editor at a small regional broadcaster.  stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1.
 ```
 
 <details><summary>ネガティブ</summary>
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 </details>
@@ -149,13 +150,13 @@ text, letters, japanese characters, kanji, signage, name plates, captions, subti
 - 癖：本番前に必ず一度、床の同じ場所を靴の先で確かめる。在京時代のスタジオの癖が抜けていない。
 
 ```
-Subject: a Japanese woman in their early 40s, veteran lead announcer at a small regional broadcaster. quiet well-cut formal clothes. tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop.
+Subject: a Japanese woman in their early 40s, veteran lead announcer at a small regional broadcaster. quiet well-cut formal clothes. stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1.
 ```
 
 <details><summary>ネガティブ</summary>
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 </details>
@@ -168,13 +169,13 @@ text, letters, japanese characters, kanji, signage, name plates, captions, subti
 - 癖：練習でも、読み終わると必ず一礼する。無人のスタジオに向かって。
 
 ```
-Subject: a Japanese woman in their early 20s, trainee announcer at a small regional broadcaster. a navy jacket. tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop.
+Subject: a Japanese woman in their early 20s, trainee announcer at a small regional broadcaster. a navy jacket. stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1.
 ```
 
 <details><summary>ネガティブ</summary>
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 </details>
@@ -189,13 +190,13 @@ text, letters, japanese characters, kanji, signage, name plates, captions, subti
 - 癖：音のいい場所を見つけると、用がなくても三分は黙って立っている。
 
 ```
-Subject: a Japanese man in their early 40s, documentary producer and narrator at a small regional broadcaster. stubble, a utility work vest. tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop.
+Subject: a Japanese man in their early 40s, documentary producer and narrator at a small regional broadcaster. stubble, a utility work vest. stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1.
 ```
 
 <details><summary>ネガティブ</summary>
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 </details>
@@ -208,13 +209,13 @@ text, letters, japanese characters, kanji, signage, name plates, captions, subti
 - 癖：本番前にレンズを拭かない。拭くと落ち着かなくなると言う。
 
 ```
-Subject: a Japanese man in their mid 40s, television cameraman at a small regional broadcaster.  tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop.
+Subject: a Japanese man in their mid 40s, television cameraman at a small regional broadcaster.  stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1.
 ```
 
 <details><summary>ネガティブ</summary>
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 </details>
@@ -227,13 +228,13 @@ text, letters, japanese characters, kanji, signage, name plates, captions, subti
 - 癖：スタジオに入ると、まず天井を見上げてから床を見る。
 
 ```
-Subject: a Japanese woman in their late 30s, lighting technician at a small regional broadcaster.  tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop.
+Subject: a Japanese woman in their late 30s, lighting technician at a small regional broadcaster.  stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1.
 ```
 
 <details><summary>ネガティブ</summary>
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 </details>
@@ -246,13 +247,13 @@ text, letters, japanese characters, kanji, signage, name plates, captions, subti
 - 癖：組んだセットを最後に一度、手のひらで押して確かめる。
 
 ```
-Subject: a Japanese man in their early 60s, set carpenter at a small regional broadcaster. plain work clothes. tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop.
+Subject: a Japanese man in their early 60s, set carpenter at a small regional broadcaster. plain work clothes. stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1.
 ```
 
 <details><summary>ネガティブ</summary>
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 </details>
@@ -265,13 +266,13 @@ text, letters, japanese characters, kanji, signage, name plates, captions, subti
 - 癖：カットを決める前に、必ず一度全体を等速で通して見る。
 
 ```
-Subject: a Japanese woman in their late 20s, video editor at a small regional broadcaster.  tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop.
+Subject: a Japanese woman in their late 20s, video editor at a small regional broadcaster.  stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1.
 ```
 
 <details><summary>ネガティブ</summary>
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 </details>
@@ -284,13 +285,13 @@ text, letters, japanese characters, kanji, signage, name plates, captions, subti
 - 癖：台本を持つ手を、必ず胸の高さで止める。
 
 ```
-Subject: a Japanese man in their early 20s, production assistant at a small regional broadcaster. visibly exhausted, shadows under the eyes. tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop.
+Subject: a Japanese man in their early 20s, production assistant at a small regional broadcaster. visibly exhausted, shadows under the eyes. stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1.
 ```
 
 <details><summary>ネガティブ</summary>
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 </details>
@@ -303,13 +304,13 @@ text, letters, japanese characters, kanji, signage, name plates, captions, subti
 - 癖：頼まれた用件を、その場で必ず復唱する。
 
 ```
-Subject: a Japanese woman in their early 20s, student part-timer at a small regional broadcaster. plain student clothes. tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop.
+Subject: a Japanese woman in their early 20s, student part-timer at a small regional broadcaster. plain student clothes. stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1.
 ```
 
 <details><summary>ネガティブ</summary>
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 </details>
@@ -324,13 +325,13 @@ text, letters, japanese characters, kanji, signage, name plates, captions, subti
 - 癖：本番中でも、機材の音が変わると話の途中で天井を見る。
 
 ```
-Subject: a Japanese woman in their late 30s, broadcast engineer at a small regional broadcaster. hair tied back, plain work clothes. tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop.
+Subject: a Japanese woman in their late 30s, broadcast engineer at a small regional broadcaster. hair tied back, plain work clothes. stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1.
 ```
 
 <details><summary>ネガティブ</summary>
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 </details>
@@ -343,13 +344,13 @@ text, letters, japanese characters, kanji, signage, name plates, captions, subti
 - 癖：送出卓の前に座る前、必ず両手を一度ひざで拭く。
 
 ```
-Subject: a Japanese man in their late 50s, master control operator on night shift at a small regional broadcaster.  tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop.
+Subject: a Japanese man in their late 50s, master control operator on night shift at a small regional broadcaster.  stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1.
 ```
 
 <details><summary>ネガティブ</summary>
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 </details>
@@ -362,13 +363,13 @@ text, letters, japanese characters, kanji, signage, name plates, captions, subti
 - 癖：番組が終わる十秒前から、口の中で秒を数える。
 
 ```
-Subject: a Japanese man in their mid 20s, master control operator at a small regional broadcaster.  tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop.
+Subject: a Japanese man in their mid 20s, master control operator at a small regional broadcaster.  stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1.
 ```
 
 <details><summary>ネガティブ</summary>
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 </details>
@@ -381,13 +382,13 @@ text, letters, japanese characters, kanji, signage, name plates, captions, subti
 - 癖：無音の場面でフェーダーから手を離さない。
 
 ```
-Subject: a Japanese woman in their early 30s, sound engineer at a small regional broadcaster.  tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop.
+Subject: a Japanese woman in their early 30s, sound engineer at a small regional broadcaster.  stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1.
 ```
 
 <details><summary>ネガティブ</summary>
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 </details>
@@ -400,13 +401,13 @@ text, letters, japanese characters, kanji, signage, name plates, captions, subti
 - 癖：送信所に着くと、建物に入る前に空中線を見上げる。
 
 ```
-Subject: a Japanese man in their mid 60s, radio transmitter engineer at a small regional broadcaster. a work cap and work clothes. tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop.
+Subject: a Japanese man in their mid 60s, radio transmitter engineer at a small regional broadcaster. a work cap and work clothes. stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1.
 ```
 
 <details><summary>ネガティブ</summary>
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 </details>
@@ -421,13 +422,13 @@ text, letters, japanese characters, kanji, signage, name plates, captions, subti
 - 癖：反論されると、まず「おっしゃるとおりです」と言ってから数字を出す。
 
 ```
-Subject: a Japanese man in their early 50s, advertising sales director at a small regional broadcaster. close-cropped hair, a heavy build, a dark suit. tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop.
+Subject: a Japanese man in their early 50s, advertising sales director at a small regional broadcaster. close-cropped hair, a heavy build, a dark suit. stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1.
 ```
 
 <details><summary>ネガティブ</summary>
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 </details>
@@ -440,13 +441,13 @@ text, letters, japanese characters, kanji, signage, name plates, captions, subti
 - 癖：断られた帰り、必ずその会社の前で一度振り返る。
 
 ```
-Subject: a Japanese man in their late 20s, advertising sales representative at a small regional broadcaster. a dark suit. tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop.
+Subject: a Japanese man in their late 20s, advertising sales representative at a small regional broadcaster. a dark suit. stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1.
 ```
 
 <details><summary>ネガティブ</summary>
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 </details>
@@ -459,13 +460,13 @@ text, letters, japanese characters, kanji, signage, name plates, captions, subti
 - 癖：書類を受け取ると、まず裏返して枚数を確かめる。
 
 ```
-Subject: a Japanese woman in their late 20s, sales office administrator at a small regional broadcaster.  tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop.
+Subject: a Japanese woman in their late 20s, sales office administrator at a small regional broadcaster.  stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1.
 ```
 
 <details><summary>ネガティブ</summary>
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 </details>
@@ -480,13 +481,13 @@ text, letters, japanese characters, kanji, signage, name plates, captions, subti
 - 癖：書類に赤を入れるとき、消せる筆記具を使わない。
 
 ```
-Subject: a Japanese woman in their early 50s, broadcast standards reviewer at a small regional broadcaster.  tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop.
+Subject: a Japanese woman in their early 50s, broadcast standards reviewer at a small regional broadcaster.  stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1.
 ```
 
 <details><summary>ネガティブ</summary>
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 </details>
@@ -499,13 +500,13 @@ text, letters, japanese characters, kanji, signage, name plates, captions, subti
 - 癖：数字が合わないとき、電卓を打ち直す前に一度天井を見る。
 
 ```
-Subject: a Japanese woman in their late 40s, accountant at a small regional broadcaster.  tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop.
+Subject: a Japanese woman in their late 40s, accountant at a small regional broadcaster.  stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1.
 ```
 
 <details><summary>ネガティブ</summary>
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 </details>
@@ -518,13 +519,13 @@ text, letters, japanese characters, kanji, signage, name plates, captions, subti
 - 癖：電話を切ったあと、相手が切るまで受話器を耳から離さない。
 
 ```
-Subject: a Japanese woman in their early 30s, front desk receptionist at a small regional broadcaster.  tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop.
+Subject: a Japanese woman in their early 30s, front desk receptionist at a small regional broadcaster.  stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1.
 ```
 
 <details><summary>ネガティブ</summary>
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 </details>
@@ -537,13 +538,13 @@ text, letters, japanese characters, kanji, signage, name plates, captions, subti
 - 癖：巡回の折り返し地点で、必ず同じ窓から外を見る。
 
 ```
-Subject: a Japanese man in their early 70s, night security guard at a small regional broadcaster. a security guard uniform. tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop.
+Subject: a Japanese man in their early 70s, night security guard at a small regional broadcaster. a security guard uniform. stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1.
 ```
 
 <details><summary>ネガティブ</summary>
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 </details>
@@ -558,13 +559,13 @@ text, letters, japanese characters, kanji, signage, name plates, captions, subti
 - 癖：売れないときほど声を落とす。
 
 ```
-Subject: a Japanese man in their early 50s, in-studio product demonstrator at a small regional broadcaster.  tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop.
+Subject: a Japanese man in their early 50s, in-studio product demonstrator at a small regional broadcaster.  stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1.
 ```
 
 <details><summary>ネガティブ</summary>
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 </details>
@@ -577,13 +578,13 @@ text, letters, japanese characters, kanji, signage, name plates, captions, subti
 - 癖：商品を置くとき、必ず角を揃える。
 
 ```
-Subject: a Japanese woman in their mid 20s, programme assistant at a small regional broadcaster. short cropped hair, a plain t-shirt. tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop.
+Subject: a Japanese woman in their mid 20s, programme assistant at a small regional broadcaster. short cropped hair, a plain t-shirt. stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1.
 ```
 
 <details><summary>ネガティブ</summary>
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 </details>
@@ -596,13 +597,13 @@ text, letters, japanese characters, kanji, signage, name plates, captions, subti
 - 癖：説明に詰まると、商品をいったん置いて両手を見せる。
 
 ```
-Subject: a Japanese man in their early 60s, in-studio product demonstrator at a small regional broadcaster. white hair, an apron. tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop.
+Subject: a Japanese man in their early 60s, in-studio product demonstrator at a small regional broadcaster. white hair, an apron. stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1.
 ```
 
 <details><summary>ネガティブ</summary>
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 </details>
@@ -615,13 +616,13 @@ text, letters, japanese characters, kanji, signage, name plates, captions, subti
 - 癖：注文が入ると、言葉を切らずに指だけで数を示す。
 
 ```
-Subject: a Japanese woman in their late 40s, in-studio product demonstrator at a small regional broadcaster. hair tied back. tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop.
+Subject: a Japanese woman in their late 40s, in-studio product demonstrator at a small regional broadcaster. hair tied back. stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1.
 ```
 
 <details><summary>ネガティブ</summary>
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 </details>
@@ -634,13 +635,13 @@ text, letters, japanese characters, kanji, signage, name plates, captions, subti
 - 癖：盤を置く前に、必ず一度息を吹きかける。
 
 ```
-Subject: a Japanese man in their mid 60s, record librarian and presenter at a small regional broadcaster. round glasses, an open-collar shirt. tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop.
+Subject: a Japanese man in their mid 60s, record librarian and presenter at a small regional broadcaster. round glasses, an open-collar shirt. stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1.
 ```
 
 <details><summary>ネガティブ</summary>
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 </details>
@@ -653,13 +654,13 @@ text, letters, japanese characters, kanji, signage, name plates, captions, subti
 - 癖：かけた盤の枚数を、番組の終わりに小声で数える。
 
 ```
-Subject: a Japanese woman in their late 30s, record librarian at a small regional broadcaster. long hair, a plain cotton shirt. tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop.
+Subject: a Japanese woman in their late 30s, record librarian at a small regional broadcaster. long hair, a plain cotton shirt. stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1.
 ```
 
 <details><summary>ネガティブ</summary>
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 </details>
@@ -672,13 +673,13 @@ text, letters, japanese characters, kanji, signage, name plates, captions, subti
 - 癖：気分が悪くなると話が異様に速くなる。
 
 ```
-Subject: a Japanese man in their early 30s, late-night television personality at a small regional broadcaster. plain glasses, a pale, drained complexion. tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop.
+Subject: a Japanese man in their early 30s, late-night television personality at a small regional broadcaster. plain glasses, a pale, drained complexion. stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1.
 ```
 
 <details><summary>ネガティブ</summary>
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 </details>
@@ -691,13 +692,13 @@ text, letters, japanese characters, kanji, signage, name plates, captions, subti
 - 癖：笑うとき、口より先に肩が動く。
 
 ```
-Subject: a Japanese woman in their late 20s, late-night television personality at a small regional broadcaster. long fringe falling over the eyes. tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop.
+Subject: a Japanese woman in their late 20s, late-night television personality at a small regional broadcaster. long fringe falling over the eyes. stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1.
 ```
 
 <details><summary>ネガティブ</summary>
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 </details>
@@ -710,13 +711,13 @@ text, letters, japanese characters, kanji, signage, name plates, captions, subti
 - 癖：相手の話が長いと、聞きながら椅子の高さを直す。
 
 ```
-Subject: a Japanese man in their early 40s, late-night television personality at a small regional broadcaster. a weathered sun-tanned face. tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop.
+Subject: a Japanese man in their early 40s, late-night television personality at a small regional broadcaster. a weathered sun-tanned face. stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1.
 ```
 
 <details><summary>ネガティブ</summary>
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 </details>
@@ -729,13 +730,13 @@ text, letters, japanese characters, kanji, signage, name plates, captions, subti
 - 癖：台詞のない場面でも、手元の伝票を最後まできちんと繰る。
 
 ```
-Subject: a Japanese woman in their late 40s, stage actor at a small regional broadcaster. hair tied back, an office uniform. tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop.
+Subject: a Japanese woman in their late 40s, stage actor at a small regional broadcaster. hair tied back, an office uniform. stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1.
 ```
 
 <details><summary>ネガティブ</summary>
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 </details>
@@ -748,13 +749,13 @@ text, letters, japanese characters, kanji, signage, name plates, captions, subti
 - 癖：窓の外を見る芝居のとき、本当に天気を見ている。
 
 ```
-Subject: a Japanese man in their late 50s, stage actor at a small regional broadcaster. white hair, reading glasses pushed up on the forehead. tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop.
+Subject: a Japanese man in their late 50s, stage actor at a small regional broadcaster. white hair, reading glasses pushed up on the forehead. stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1.
 ```
 
 <details><summary>ネガティブ</summary>
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 </details>
@@ -767,13 +768,13 @@ text, letters, japanese characters, kanji, signage, name plates, captions, subti
 - 癖：本番前に必ず指を温める。
 
 ```
-Subject: a Japanese woman in their early 20s, stage actor at a small regional broadcaster.  tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop.
+Subject: a Japanese woman in their early 20s, stage actor at a small regional broadcaster.  stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1.
 ```
 
 <details><summary>ネガティブ</summary>
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 </details>
@@ -786,13 +787,13 @@ text, letters, japanese characters, kanji, signage, name plates, captions, subti
 - 癖：高座に上がる前、袖で一度だけ客席の数を数える。
 
 ```
-Subject: a Japanese woman in their early 40s, rakugo storyteller in kimono at a small regional broadcaster. a traditional kimono. tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop.
+Subject: a Japanese woman in their early 40s, rakugo storyteller in kimono at a small regional broadcaster. a traditional kimono. stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1.
 ```
 
 <details><summary>ネガティブ</summary>
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 </details>
@@ -805,13 +806,13 @@ text, letters, japanese characters, kanji, signage, name plates, captions, subti
 - 癖：受けなかったときほど、丁寧に礼をする。
 
 ```
-Subject: a Japanese man in their early 30s, rakugo storyteller in kimono at a small regional broadcaster. a traditional kimono. tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop.
+Subject: a Japanese man in their early 30s, rakugo storyteller in kimono at a small regional broadcaster. a traditional kimono. stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1.
 ```
 
 <details><summary>ネガティブ</summary>
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 </details>
@@ -824,13 +825,13 @@ text, letters, japanese characters, kanji, signage, name plates, captions, subti
 - 癖：解説の最後に、必ず上映時間を言い直す。
 
 ```
-Subject: a Japanese man in their early 60s, film commentator at a small regional broadcaster. white hair, a bow tie. tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop.
+Subject: a Japanese man in their early 60s, film commentator at a small regional broadcaster. white hair, a bow tie. stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1.
 ```
 
 <details><summary>ネガティブ</summary>
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 </details>
@@ -843,13 +844,13 @@ text, letters, japanese characters, kanji, signage, name plates, captions, subti
 - 癖：沈黙が三十秒を超えると、湯呑みの位置を少しだけ直す。
 
 ```
-Subject: a Japanese woman in their early 40s, late-night television personality at a small regional broadcaster.  tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop.
+Subject: a Japanese woman in their early 40s, late-night television personality at a small regional broadcaster.  stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1.
 ```
 
 <details><summary>ネガティブ</summary>
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 </details>
@@ -862,13 +863,13 @@ text, letters, japanese characters, kanji, signage, name plates, captions, subti
 - 癖：話が行き詰まると、台本の裏に何か書いてから顔を上げる。
 
 ```
-Subject: a Japanese man in their late 40s, late-night television personality at a small regional broadcaster. visibly exhausted, shadows under the eyes. tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop.
+Subject: a Japanese man in their late 40s, late-night television personality at a small regional broadcaster. visibly exhausted, shadows under the eyes. stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1.
 ```
 
 <details><summary>ネガティブ</summary>
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 </details>
@@ -881,13 +882,13 @@ text, letters, japanese characters, kanji, signage, name plates, captions, subti
 - 癖：時計を見ないで残り時間を当てる。ほぼ当たる。
 
 ```
-Subject: a Japanese woman in their early 30s, late-night television personality at a small regional broadcaster.  tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop.
+Subject: a Japanese woman in their early 30s, late-night television personality at a small regional broadcaster.  stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1.
 ```
 
 <details><summary>ネガティブ</summary>
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 </details>
@@ -900,13 +901,13 @@ text, letters, japanese characters, kanji, signage, name plates, captions, subti
 - 癖：渋滞の距離を言うとき、必ず起点も言い直す。
 
 ```
-Subject: a Japanese woman in their late 50s, radio traffic reporter at a small regional broadcaster. plain work clothes. tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop.
+Subject: a Japanese woman in their late 50s, radio traffic reporter at a small regional broadcaster. plain work clothes. stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1.
 ```
 
 <details><summary>ネガティブ</summary>
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 </details>
@@ -919,13 +920,13 @@ text, letters, japanese characters, kanji, signage, name plates, captions, subti
 - 癖：曲を紹介したあと、一度だけ息を吸う音が入る。
 
 ```
-Subject: a Japanese man in their early 40s, radio host at a small regional broadcaster.  tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop.
+Subject: a Japanese man in their early 40s, radio host at a small regional broadcaster.  stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1.
 ```
 
 <details><summary>ネガティブ</summary>
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 </details>
@@ -938,13 +939,13 @@ text, letters, japanese characters, kanji, signage, name plates, captions, subti
 - 癖：色を説明するとき、必ず身近な物にたとえる。
 
 ```
-Subject: a Japanese man in their late 30s, radio shopping programme host at a small regional broadcaster.  tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop.
+Subject: a Japanese man in their late 30s, radio shopping programme host at a small regional broadcaster.  stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1.
 ```
 
 <details><summary>ネガティブ</summary>
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 </details>
@@ -957,13 +958,13 @@ text, letters, japanese characters, kanji, signage, name plates, captions, subti
 - 癖：章の切れ目で、本を閉じずに伏せる。
 
 ```
-Subject: a Japanese woman in their early 50s, radio reader at a small regional broadcaster.  tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop.
+Subject: a Japanese woman in their early 50s, radio reader at a small regional broadcaster.  stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1.
 ```
 
 <details><summary>ネガティブ</summary>
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 </details>
@@ -976,13 +977,13 @@ text, letters, japanese characters, kanji, signage, name plates, captions, subti
 - 癖：本の話をする前に、必ず請求記号から言う。
 
 ```
-Subject: a Japanese woman in their late 40s, public librarian at a small regional broadcaster. a cardigan. tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop.
+Subject: a Japanese woman in their late 40s, public librarian at a small regional broadcaster. a cardigan. stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1.
 ```
 
 <details><summary>ネガティブ</summary>
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 </details>
@@ -995,13 +996,13 @@ text, letters, japanese characters, kanji, signage, name plates, captions, subti
 - 癖：渋滞が解けると、報告のあとに短く「よかったですね」と言う。
 
 ```
-Subject: a Japanese man in their late 30s, radio traffic reporter at a small regional broadcaster.  tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop.
+Subject: a Japanese man in their late 30s, radio traffic reporter at a small regional broadcaster.  stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1.
 ```
 
 <details><summary>ネガティブ</summary>
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 </details>
@@ -1014,13 +1015,13 @@ text, letters, japanese characters, kanji, signage, name plates, captions, subti
 - 癖：曲が終わる二秒前からマイクを開ける。
 
 ```
-Subject: a Japanese man in their early 40s, radio host at a small regional broadcaster.  tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop.
+Subject: a Japanese man in their early 40s, radio host at a small regional broadcaster.  stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1.
 ```
 
 <details><summary>ネガティブ</summary>
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 </details>
@@ -1033,13 +1034,13 @@ text, letters, japanese characters, kanji, signage, name plates, captions, subti
 - 癖：発音の見本を出すとき、二回目は必ず少しゆっくり言う。
 
 ```
-Subject: a Japanese woman in their late 30s, language lecturer at a small regional broadcaster. plain glasses. tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop.
+Subject: a Japanese woman in their late 30s, language lecturer at a small regional broadcaster. plain glasses. stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1.
 ```
 
 <details><summary>ネガティブ</summary>
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 </details>
@@ -1052,13 +1053,13 @@ text, letters, japanese characters, kanji, signage, name plates, captions, subti
 - 癖：相談の途中で、一度だけ相手の言葉をそのまま繰り返す。
 
 ```
-Subject: a Japanese man in their early 60s, radio host at a small regional broadcaster.  tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop.
+Subject: a Japanese man in their early 60s, radio host at a small regional broadcaster.  stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1.
 ```
 
 <details><summary>ネガティブ</summary>
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 </details>
@@ -1071,13 +1072,13 @@ text, letters, japanese characters, kanji, signage, name plates, captions, subti
 - 癖：話し終わりに、必ず半拍の間を置いてから曲を出す。四十年変わっていない。
 
 ```
-Subject: a Japanese man in their early 70s, radio host at a small regional broadcaster. white hair. tight head-and-shoulders portrait photograph, black and white, framed from the top of the head to the upper chest only, the face fills most of the frame, centered, facing the camera straight on, neutral closed-mouth expression, completely plain flat light gray studio backdrop — an empty seamless wall, no room, no desk, no furniture, no microphone, no equipment, no props of any kind, soft even frontal light, gentle falloff on one side, 1980s Japanese regional newspaper staff photo printed on newsprint, visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black, documentary realism, a real photograph, not an illustration, absolutely no text anywhere in the image, square 1:1 crop.
+Subject: a Japanese man in their early 70s, radio host at a small regional broadcaster. white hair. stylized caricature portrait illustration in the style of a Japanese newspaper column sketch, moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face, confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots, monochrome only — black ink and grays on off-white paper, no color at all, tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer, a subtle characteristic expression, completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind, the same illustrator and the same drawing style for every portrait in a series, absolutely no text anywhere in the image, no signature, square 1:1.
 ```
 
 <details><summary>ネガティブ</summary>
 
 ```
-text, letters, japanese characters, kanji, signage, name plates, captions, subtitles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, bokeh background, busy background, color, saturated colors, glamour retouching, smooth skin, beauty filter, anime, manga, illustration, 3d render, cgi, painting, sketch, multiple people, full body, wide shot, hands visible, dramatic lighting, modern digital photo look, high dynamic range, clinical sharpness
+text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles, logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature, microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers, room interior, background objects, scenery, busy background, color, saturated colors, colored pencil, watercolor wash, photorealistic, photograph, 3d render, cgi, glossy digital painting, anime eyes, chibi, super-deformed, cute mascot style, western cartoon, multiple people, full body, wide shot, hands visible
 ```
 
 </details>

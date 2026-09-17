@@ -44,36 +44,38 @@ if (apply) {
 
 /* ---------- プロンプトを書き出す ---------- */
 
-// 紙面が新聞なので、似顔絵ではなく「新聞に刷られた顔写真」に寄せる。
-// 網点とインクのにじみを指定して、他の要素（明朝・ヘアライン・単色）と衝突させない。
 // 紙面での表示は名鑑22px・人物面84px。引きの構図はこの大きさで潰れるので、
-// 新聞の顔写真と同じく寄りのバストアップに固定する。
+// 寄りのバストアップに固定する。
 // 背景を完全に無地にするのは、意匠のためだけでなく、
 // 機材や札に実在の放送局名が乗るのを防ぐため（一度これで事故った）。
+//
+// 写実の顔写真はやめ、新聞のコラムに添えられる似顔絵に寄せる。
+// ある程度デフォルメ（頭を大きめ、線を省く）するが、人物の性格は顔に残す。
+// 紙面が黒と灰だけなので、絵もペンの黒とトーンの灰だけで描かせる。
+// 55名が同じ描き手に見えることがいちばん大事なので、画材と線の指定は固定する。
 const 共通 = [
-  'tight head-and-shoulders portrait photograph, black and white',
-  'framed from the top of the head to the upper chest only, the face fills most of the frame',
-  'centered, facing the camera straight on, neutral closed-mouth expression',
-  'completely plain flat light gray studio backdrop — an empty seamless wall',
-  'no room, no desk, no furniture, no microphone, no equipment, no props of any kind',
-  'soft even frontal light, gentle falloff on one side',
-  '1980s Japanese regional newspaper staff photo printed on newsprint',
-  'visible coarse halftone dot texture, slight ink bleed, muted grays, no pure black',
-  'documentary realism, a real photograph, not an illustration',
-  'absolutely no text anywhere in the image',
-  'square 1:1 crop',
+  'stylized caricature portrait illustration in the style of a Japanese newspaper column sketch',
+  'moderately deformed proportions: head slightly large for the body, simplified features, but the personality clearly readable in the face',
+  'confident black brush-pen and fine pen linework, flat gray screentone shading with visible halftone dots',
+  'monochrome only — black ink and grays on off-white paper, no color at all',
+  'tight head-and-shoulders, the face fills most of the frame, centered, facing the viewer',
+  'a subtle characteristic expression',
+  'completely plain empty off-white background, no room, no furniture, no equipment, no props of any kind',
+  'the same illustrator and the same drawing style for every portrait in a series',
+  'absolutely no text anywhere in the image, no signature',
+  'square 1:1',
 ].join(', ');
 
 // 文字と商標はしつこく禁じる。一度で効かないので、肯定側と否定側の両方に書く。
 const 否定 = [
-  'text, letters, japanese characters, kanji, signage, name plates, captions, subtitles',
+  'text, letters, japanese characters, kanji, signage, name plates, captions, speech bubbles',
   'logos, brand names, station call letters, broadcaster names, trademarks, watermark, signature',
   'microphones, headphones, stopwatches, clocks, tape machines, studio equipment, desks, papers',
-  'room interior, background objects, bokeh background, busy background',
-  'color, saturated colors, glamour retouching, smooth skin, beauty filter',
-  'anime, manga, illustration, 3d render, cgi, painting, sketch',
-  'multiple people, full body, wide shot, hands visible, dramatic lighting',
-  'modern digital photo look, high dynamic range, clinical sharpness',
+  'room interior, background objects, scenery, busy background',
+  'color, saturated colors, colored pencil, watercolor wash',
+  'photorealistic, photograph, 3d render, cgi, glossy digital painting',
+  'anime eyes, chibi, super-deformed, cute mascot style, western cartoon',
+  'multiple people, full body, wide shot, hands visible',
 ].join(', ');
 
 // 年代・性別・肩書は絵の骨格を決めるので英語でも渡す。
@@ -202,8 +204,9 @@ const 行 = [];
 行.push('2. 出てきた画像を **`docs/portraits/<id>.webp`** として保存する（例：`docs/portraits/h051.webp`）');
 行.push('3. `npm run sync` を走らせてコミットする');
 行.push('');
-行.push('置いた人から順に、名鑑と人物面に顔写真が出る。置いていない人は何も出ない。');
-行.push('紙面が単色なので、**カラーで作らず白黒で作ること**。網点の粗さが他の要素と釣り合う。');
+行.push('置いた人から順に、名鑑と人物面に似顔絵が出る。置いていない人は何も出ない。');
+行.push('絵柄は**新聞のコラムに添えられる似顔絵**。ペンの黒とスクリーントーンの灰だけで、ある程度デフォルメする。');
+行.push('紙面が単色なので、**カラーで作らないこと**。55名が同じ描き手に見えることを優先する。');
 行.push('');
 行.push('## 全員に共通する指定');
 行.push('');
