@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="郡司 あさひの似顔絵">
+<defs>
+<pattern id="tone" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="4" fill="#efece3"/><circle cx="1.4" cy="1.4" r="1.15" fill="#17160f"/></pattern>
+<pattern id="hatch" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(38)"><rect width="5" height="5" fill="#efece3"/><line x1="0" y1="0" x2="0" y2="5" stroke="#17160f" stroke-width="1.6"/></pattern>
+</defs>
+<rect width="120" height="120" fill="#efece3"/>
+<path d="M6,120 C8,100 30,90 60,90 C90,90 112,100 114,120 Z" fill="#efece3" stroke="#17160f" stroke-width="2.4" stroke-linejoin="round"/><path d="M40,94 C48,90 72,90 80,94 L88,100 L86,120 L34,120 L32,100 Z" fill="#efece3" stroke="#17160f" stroke-width="2.2" stroke-linejoin="round"/><path d="M50,93 C56,99 64,99 70,93" fill="none" stroke="#17160f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M52,74 L68,74 L69,94 L51,94 Z" fill="#efece3" stroke="#17160f" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M34.15321711432189,41.488452889677134 C34.15321711432189,16.661362138148398 85.84678288567811,16.661362138148398 85.84678288567811,41.488452889677134 C85.84678288567811,68.48791408196465 83.2621045971103,80.28078218894079 60,80.28078218894079 C36.7378954028897,80.28078218894079 34.15321711432189,68.48791408196465 34.15321711432189,41.488452889677134 Z" fill="#efece3" stroke="#17160f" stroke-width="2.4" stroke-linejoin="round"/>
+<path d="M33.15321711432189,47.24691874952987 q-5,3 0,9 Z" fill="#efece3" stroke="#17160f" stroke-width="2" stroke-linejoin="round"/>
+<path d="M86.84678288567811,47.24691874952987 q5,3 0,9 Z" fill="#efece3" stroke="#17160f" stroke-width="2" stroke-linejoin="round"/>
+<path d="M32.860877970037976,52.97098236225918 C27.43305356404558,8.902896278295666 92.56694643595442,8.902896278295666 87.13912202996202,52.97098236225918 L80.6774263085425,52.59857600098625 C84.81291157025099,33.59201883618906 35.18708842974901,33.59201883618906 39.32257369145751,52.59857600098625 Z" fill="#17160f" stroke="#17160f" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M44.28112970218062,39.87500167153776 q5,-2.6 10,0.4539680507779122" fill="none" stroke="#17160f" stroke-width="2.682088507572189" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M75.71887029781938,42.144841925427315 q-5,-2.6 -10,-0.4539680507779122" fill="none" stroke="#17160f" stroke-width="2.682088507572189" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M44.68112970218062,51.1479426488746 q4.6,-3 9.2,0" fill="none" stroke="#17160f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M66.11887029781938,51.1479426488746 q4.6,-3 9.2,0" fill="none" stroke="#17160f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M58.5,56.207904358627275 q3,2.4 4.6,-0.6" fill="none" stroke="#17160f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M54.3383653851226,65.20790435862727 q5.661634614877403,2.7746769919060172 11.323269229754805,0" fill="none" stroke="#17160f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

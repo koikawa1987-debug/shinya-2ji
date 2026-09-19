@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="沼田尻 廉の似顔絵">
+<defs>
+<pattern id="tone" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="4" fill="#efece3"/><circle cx="1.4" cy="1.4" r="1.15" fill="#17160f"/></pattern>
+<pattern id="hatch" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(38)"><rect width="5" height="5" fill="#efece3"/><line x1="0" y1="0" x2="0" y2="5" stroke="#17160f" stroke-width="1.6"/></pattern>
+</defs>
+<rect width="120" height="120" fill="#efece3"/>
+<path d="M6,120 C8,100 30,90 60,90 C90,90 112,100 114,120 Z" fill="#efece3" stroke="#17160f" stroke-width="2.4" stroke-linejoin="round"/><path d="M38,93 L60,102 L82,93 L88,98 L86,120 L34,120 L32,98 Z" fill="url(#tone)" stroke="#17160f" stroke-width="2.2" stroke-linejoin="round"/><path d="M60,102 L60,120" fill="none" stroke="#17160f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M52,74 L68,74 L69,94 L51,94 Z" fill="#efece3" stroke="#17160f" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M34.9462801862508,41.93999857814051 C34.9462801862508,17.54098625571467 85.0537198137492,17.54098625571467 85.0537198137492,41.93999857814051 C85.0537198137492,68.47392447877861 82.54834783237428,80.0634553319309 60,80.0634553319309 C37.451652167625724,80.0634553319309 34.9462801862508,68.47392447877861 34.9462801862508,41.93999857814051 Z" fill="#efece3" stroke="#17160f" stroke-width="2.4" stroke-linejoin="round"/>
+<path d="M33.9462801862508,47.56468992889859 q-5,3 0,9 Z" fill="#efece3" stroke="#17160f" stroke-width="2" stroke-linejoin="round"/>
+<path d="M86.0537198137492,47.56468992889859 q5,3 0,9 Z" fill="#efece3" stroke="#17160f" stroke-width="2" stroke-linejoin="round"/>
+<path d="M34.19466859183833,36.26543068707921 C33.443056997425856,9.916294904956596 86.55694300257414,9.916294904956596 85.80533140816166,36.26543068707921 C78.03867826589942,26.995603530654687 41.96132173410058,26.995603530654687 34.19466859183833,36.26543068707921 Z" fill="url(#hatch)" stroke="#17160f" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M44.9909854721278,40.45881847385317 q5,-2.6 10,0.030405376851558686" fill="none" stroke="#17160f" stroke-width="2.5783899337518963" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M75.00901452787221,40.610845358110964 q-5,-2.6 -10,-0.030405376851558686" fill="none" stroke="#17160f" stroke-width="2.5783899337518963" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="49.9909854721278" cy="50.921724653081036" r="3.4" fill="#efece3" stroke="#17160f" stroke-width="2"/><circle cx="49.9909854721278" cy="51.12172465308104" r="1.7" fill="#17160f"/>
+<circle cx="70.00901452787221" cy="50.921724653081036" r="3.4" fill="#efece3" stroke="#17160f" stroke-width="2"/><circle cx="70.00901452787221" cy="51.12172465308104" r="1.7" fill="#17160f"/>
+<path d="M58.5,56.20350144279655 q3,2.4 4.6,-0.6" fill="none" stroke="#17160f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M52.81777608785778,65.20350144279655 q7.182223912142217,-1.2 14.364447824284435,0" fill="none" stroke="#17160f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M48,61.20350144279655 q3,5 1,9" fill="none" stroke="#17160f" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M72,61.20350144279655 q-3,5 -1,9" fill="none" stroke="#17160f" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M51,34.53483191598207 q9,-2.4 18,0" fill="none" stroke="#17160f" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M32.94198260115087,35.53525784350373 C32.44090820487588,12.966171445259825 87.55909179512412,12.966171445259825 87.05801739884913,35.53525784350373 Z" fill="url(#tone)" stroke="#17160f" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M28.682850232813507,35.53525784350373 h62.634299534372985 v4 h-62.634299534372985 Z" fill="#17160f" stroke="#17160f" stroke-width="1.6" stroke-linejoin="round"/>
+</svg>

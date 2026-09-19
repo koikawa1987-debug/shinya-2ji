@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="相良 ゆきの似顔絵">
+<defs>
+<pattern id="tone" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="4" fill="#efece3"/><circle cx="1.4" cy="1.4" r="1.15" fill="#17160f"/></pattern>
+<pattern id="hatch" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(38)"><rect width="5" height="5" fill="#efece3"/><line x1="0" y1="0" x2="0" y2="5" stroke="#17160f" stroke-width="1.6"/></pattern>
+</defs>
+<rect width="120" height="120" fill="#efece3"/>
+<path d="M6,120 C8,100 30,90 60,90 C90,90 112,100 114,120 Z" fill="#efece3" stroke="#17160f" stroke-width="2.4" stroke-linejoin="round"/><path d="M42,93 L60,103 L78,93 L86,98 L84,120 L36,120 L34,98 Z" fill="#efece3" stroke="#17160f" stroke-width="2.2" stroke-linejoin="round"/><path d="M49,92 L60,104 L71,92" fill="none" stroke="#17160f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M52,74 L68,74 L69,94 L51,94 Z" fill="#efece3" stroke="#17160f" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M33.724323282018304,40.9407318606507 C33.724323282018304,15.65034541691653 86.2756767179817,15.65034541691653 86.2756767179817,40.9407318606507 C86.2756767179817,68.44402711821161 83.64810904618352,80.45696067898534 60,80.45696067898534 C36.35189095381647,80.45696067898534 33.724323282018304,68.44402711821161 33.724323282018304,40.9407318606507 Z" fill="#efece3" stroke="#17160f" stroke-width="2.4" stroke-linejoin="round"/>
+<path d="M32.724323282018304,46.84397762431763 q-5,3 0,9 Z" fill="#efece3" stroke="#17160f" stroke-width="2" stroke-linejoin="round"/>
+<path d="M87.2756767179817,46.84397762431763 q5,3 0,9 Z" fill="#efece3" stroke="#17160f" stroke-width="2" stroke-linejoin="round"/>
+<path d="M32.93605298047885,39.93426508026384 C32.1477826789394,7.747099653249606 87.8522173210606,7.747099653249606 87.06394701952115,39.93426508026384 C78.91848723694682,30.508447452610362 41.08151276305318,30.508447452610362 32.93605298047885,39.93426508026384 Z" fill="#17160f" stroke="#17160f" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M44.89080553278327,38.68646269440651 q5,-2.6 10,-0.11435441136360165" fill="none" stroke="#17160f" stroke-width="2.7423940306529406" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M75.10919446721672,38.1146906375885 q-5,-2.6 -10,0.11435441136360165" fill="none" stroke="#17160f" stroke-width="2.7423940306529406" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M45.690805532783266,48.06712054403033 q4.2,-4 8.4,0" fill="none" stroke="#17160f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="49.89080553278327" cy="48.66712054403033" r="1.9" fill="#17160f"/>
+<path d="M65.90919446721672,48.06712054403033 q4.2,-4 8.4,0" fill="none" stroke="#17160f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="70.10919446721672" cy="48.66712054403033" r="1.9" fill="#17160f"/>
+<path d="M58.5,53.298076739767566 q3,2.4 4.6,-0.6" fill="none" stroke="#17160f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M54.195774865243585,62.298076739767566 q5.804225134756416,-1.2 11.608450269512833,0" fill="none" stroke="#17160f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="41.49080553278327" y="42.56712054403033" width="16.8" height="12" rx="3" fill="none" stroke="#17160f" stroke-width="1.3"/>
+<rect x="61.709194467216726" y="42.56712054403033" width="16.8" height="12" rx="3" fill="none" stroke="#17160f" stroke-width="1.3"/>
+<path d="M58.29080553278327,48.56712054403033 L61.709194467216726,48.56712054403033" fill="none" stroke="#17160f" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

@@ -96,7 +96,7 @@ export function syncDocsData() {
   const 顔写真 = {};
   if (fs.existsSync(顔写真ディレクトリ)) {
     for (const f of fs.readdirSync(顔写真ディレクトリ).sort()) {
-      const m = /^(h\d{3})\.(webp|png|jpe?g|avif)$/i.exec(f);
+      const m = /^(h\d{3})\.(svg|webp|png|jpe?g|avif)$/i.exec(f);
       if (m && !顔写真[m[1]]) 顔写真[m[1]] = f;
     }
   }

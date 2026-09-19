@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="袴田 たもつの似顔絵">
+<defs>
+<pattern id="tone" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="4" fill="#efece3"/><circle cx="1.4" cy="1.4" r="1.15" fill="#17160f"/></pattern>
+<pattern id="hatch" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(38)"><rect width="5" height="5" fill="#efece3"/><line x1="0" y1="0" x2="0" y2="5" stroke="#17160f" stroke-width="1.6"/></pattern>
+</defs>
+<rect width="120" height="120" fill="#efece3"/>
+<path d="M6,120 C8,100 30,90 60,90 C90,90 112,100 114,120 Z" fill="#efece3" stroke="#17160f" stroke-width="2.4" stroke-linejoin="round"/><path d="M42,93 L60,103 L78,93 L86,98 L84,120 L36,120 L34,98 Z" fill="#efece3" stroke="#17160f" stroke-width="2.2" stroke-linejoin="round"/><path d="M49,92 L60,104 L71,92" fill="none" stroke="#17160f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M52,74 L68,74 L69,94 L51,94 Z" fill="#efece3" stroke="#17160f" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M34.21876459643245,42.41289638569579 C34.21876459643245,16.963003104235973 85.78123540356755,16.963003104235973 85.78123540356755,42.41289638569579 C85.78123540356755,70.08965532928332 83.2031118632108,82.17835463797674 60,82.17835463797674 C36.79688813678921,82.17835463797674 34.21876459643245,70.08965532928332 34.21876459643245,42.41289638569579 Z" fill="#efece3" stroke="#17160f" stroke-width="2.4" stroke-linejoin="round"/>
+<path d="M33.21876459643245,48.365988036151975 q-5,3 0,9 Z" fill="#efece3" stroke="#17160f" stroke-width="2" stroke-linejoin="round"/>
+<path d="M86.78123540356755,48.365988036151975 q5,3 0,9 Z" fill="#efece3" stroke="#17160f" stroke-width="2" stroke-linejoin="round"/>
+<path d="M33.70313988836109,48.77536970606074 C33.18751518028974,34.459804735239594 37.828137552931906,30.642320743020626 39.375011677145956,34.459804735239594 C44.53125875785947,44.00351471578702 75.46874124214054,44.00351471578702 80.62498832285405,34.459804735239594 C82.1718624470681,30.642320743020626 86.81248481971025,34.459804735239594 86.2968601116389,48.77536970606074 Z" fill="#efece3" stroke="#17160f" stroke-width="1.8" stroke-linejoin="round"/>
+<path d="M44.321077479794624,43.52985145968851 q5,-2.6 10,-0.36520975917577747" fill="none" stroke="#17160f" stroke-width="2.2580755277071147" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M75.67892252020538,41.70380266380962 q-5,-2.6 -10,0.36520975917577747" fill="none" stroke="#17160f" stroke-width="2.2580755277071147" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="49.321077479794624" cy="51.55806637215428" r="3.4" fill="#efece3" stroke="#17160f" stroke-width="2"/><circle cx="49.321077479794624" cy="51.75806637215428" r="1.7" fill="#17160f"/>
+<circle cx="70.67892252020538" cy="51.55806637215428" r="3.4" fill="#efece3" stroke="#17160f" stroke-width="2"/><circle cx="70.67892252020538" cy="51.75806637215428" r="1.7" fill="#17160f"/>
+<path d="M58.5,57.61517367674969 q3,2.4 4.6,-0.6" fill="none" stroke="#17160f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M54.38430919824168,66.61517367674969 q5.615690801758319,1.279080921597779 11.231381603516638,0" fill="none" stroke="#17160f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M48,62.61517367674969 q3,5 1,9" fill="none" stroke="#17160f" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M72,62.61517367674969 q-3,5 -1,9" fill="none" stroke="#17160f" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="40.921077479794626" y="29.616827061749063" width="16.8" height="12" rx="3" fill="none" stroke="#17160f" stroke-width="2"/>
+<rect x="62.27892252020538" y="29.616827061749063" width="16.8" height="12" rx="3" fill="none" stroke="#17160f" stroke-width="2"/>
+<path d="M57.72107747979462,35.61682706174906 L62.27892252020538,35.61682706174906" fill="none" stroke="#17160f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

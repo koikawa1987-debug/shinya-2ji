@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="半田 かけるの似顔絵">
+<defs>
+<pattern id="tone" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="4" fill="#efece3"/><circle cx="1.4" cy="1.4" r="1.15" fill="#17160f"/></pattern>
+<pattern id="hatch" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(38)"><rect width="5" height="5" fill="#efece3"/><line x1="0" y1="0" x2="0" y2="5" stroke="#17160f" stroke-width="1.6"/></pattern>
+</defs>
+<rect width="120" height="120" fill="#efece3"/>
+<path d="M6,120 C8,100 30,90 60,90 C90,90 112,100 114,120 Z" fill="#efece3" stroke="#17160f" stroke-width="2.4" stroke-linejoin="round"/><path d="M42,93 L60,103 L78,93 L86,98 L84,120 L36,120 L34,98 Z" fill="#efece3" stroke="#17160f" stroke-width="2.2" stroke-linejoin="round"/><path d="M49,92 L60,104 L71,92" fill="none" stroke="#17160f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M52,74 L68,74 L69,94 L51,94 Z" fill="#efece3" stroke="#17160f" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M34.21647747186944,40.924372678482904 C34.21647747186944,16.389239977085964 85.78352252813056,16.389239977085964 85.78352252813056,40.924372678482904 C85.78352252813056,67.60632949125208 74.43877261575312,79.26051752441563 60,79.26051752441563 C45.561227384246884,79.26051752441563 34.21647747186944,67.60632949125208 34.21647747186944,40.924372678482904 Z" fill="#efece3" stroke="#17160f" stroke-width="2.4" stroke-linejoin="round"/>
+<path d="M33.21647747186944,46.59160164766945 q-5,3 0,9 Z" fill="#efece3" stroke="#17160f" stroke-width="2" stroke-linejoin="round"/>
+<path d="M86.78352252813056,46.59160164766945 q5,3 0,9 Z" fill="#efece3" stroke="#17160f" stroke-width="2" stroke-linejoin="round"/>
+<path d="M33.44297179602552,40.09727866190113 C32.6694661201816,5.04174110268988 87.3305338798184,5.04174110268988 86.55702820397448,40.09727866190113 C78.564136220254,28.963495486551892 41.435863779746,28.963495486551892 33.44297179602552,40.09727866190113 Z" fill="#17160f" stroke="#17160f" stroke-width="2.2" stroke-linejoin="round"/><path d="M44.529886483121665,33.09727866190113 q7.735056758439168,-4.9070265402793884 15.985783967440948,0.6133783175349236" fill="none" stroke="#17160f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M44.110333167016506,39.080824451264924 q5,-2.6 10,-0.0679937785863876" fill="none" stroke="#17160f" stroke-width="1.8521530921570957" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M75.8896668329835,38.74085555833299 q-5,-2.6 -10,0.0679937785863876" fill="none" stroke="#17160f" stroke-width="1.8521530921570957" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M45.110333167016506,48.673389445990324 q4,3.4 8,0" fill="none" stroke="#17160f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M46.110333167016506,52.673389445990324 q3,1.4 6,0" fill="none" stroke="#17160f" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M66.8896668329835,48.673389445990324 q4,3.4 8,0" fill="none" stroke="#17160f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M67.8896668329835,52.673389445990324 q3,1.4 6,0" fill="none" stroke="#17160f" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M58.5,54.353025180404074 q3,2.4 4.6,-0.6" fill="none" stroke="#17160f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M54.59281620848924,62.353025180404074 q5.407183791510761,5.177066071657464 10.814367583021522,0" fill="none" stroke="#17160f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="40.71033316701651" y="43.173389445990324" width="16.8" height="12" rx="3" fill="none" stroke="#17160f" stroke-width="2"/>
+<rect x="62.489666832983495" y="43.173389445990324" width="16.8" height="12" rx="3" fill="none" stroke="#17160f" stroke-width="2"/>
+<path d="M57.510333167016505,49.173389445990324 L62.489666832983495,49.173389445990324" fill="none" stroke="#17160f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

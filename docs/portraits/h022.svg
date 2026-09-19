@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="久我山 澪の似顔絵">
+<defs>
+<pattern id="tone" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="4" fill="#efece3"/><circle cx="1.4" cy="1.4" r="1.15" fill="#17160f"/></pattern>
+<pattern id="hatch" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(38)"><rect width="5" height="5" fill="#efece3"/><line x1="0" y1="0" x2="0" y2="5" stroke="#17160f" stroke-width="1.6"/></pattern>
+</defs>
+<rect width="120" height="120" fill="#efece3"/>
+<path d="M6,120 C8,100 30,90 60,90 C90,90 112,100 114,120 Z" fill="#efece3" stroke="#17160f" stroke-width="2.4" stroke-linejoin="round"/><path d="M42,92 L60,106 L78,92 L86,96 L84,120 L36,120 L34,96 Z" fill="url(#tone)" stroke="#17160f" stroke-width="2.2" stroke-linejoin="round"/><path d="M52,100 L60,104 L52,108 Z M68,100 L60,104 L68,108 Z" fill="#17160f" stroke="#17160f" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M52,74 L68,74 L69,94 L51,94 Z" fill="#efece3" stroke="#17160f" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M33.28729617660865,42.483103729132566 C33.28729617660865,15.610156551245595 86.71270382339135,15.610156551245595 86.71270382339135,42.483103729132566 C86.71270382339135,71.70743378508463 79.23314675284178,84.47208369458095 60,84.47208369458095 C40.76685324715823,84.47208369458095 33.28729617660865,71.70743378508463 33.28729617660865,42.483103729132566 Z" fill="#efece3" stroke="#17160f" stroke-width="2.4" stroke-linejoin="round"/>
+<path d="M32.28729617660865,48.88089972222224 q-5,3 0,9 Z" fill="#efece3" stroke="#17160f" stroke-width="2" stroke-linejoin="round"/>
+<path d="M87.71270382339135,48.88089972222224 q5,3 0,9 Z" fill="#efece3" stroke="#17160f" stroke-width="2" stroke-linejoin="round"/>
+<path d="M32.48591506190691,35.72618933880702 C31.68453394720517,7.21236055815592 88.31546605279483,7.21236055815592 87.51408493809309,35.72618933880702 C79.23314675284178,26.0234235826768 40.76685324715823,26.0234235826768 32.48591506190691,35.72618933880702 Z" fill="#efece3" stroke="#17160f" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M45.06447605155408,40.472047533350995 q5,-2.6 10,0.13323351830244068" fill="none" stroke="#17160f" stroke-width="3.113461576541886" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M74.93552394844592,41.1382151248632 q-5,-2.6 -10,-0.13323351830244068" fill="none" stroke="#17160f" stroke-width="3.113461576541886" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M45.86447605155408,50.66054685495328 q4.2,-4 8.4,0" fill="none" stroke="#17160f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50.06447605155408" cy="51.26054685495328" r="1.9" fill="#17160f"/>
+<path d="M65.73552394844592,50.66054685495328 q4.2,-4 8.4,0" fill="none" stroke="#17160f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="69.93552394844592" cy="51.26054685495328" r="1.9" fill="#17160f"/>
+<path d="M58.5,55.84034797025379 q3,2.4 4.6,-0.6" fill="none" stroke="#17160f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M54.42724953051656,63.84034797025379 q5.572750469483435,3.432394215837121 11.14550093896687,0" fill="none" stroke="#17160f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M48,60.84034797025379 q3,5 1,9" fill="none" stroke="#17160f" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M72,60.84034797025379 q-3,5 -1,9" fill="none" stroke="#17160f" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M51,34.8051313291071 q9,-2.4 18,0" fill="none" stroke="#17160f" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
